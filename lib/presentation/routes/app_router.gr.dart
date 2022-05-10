@@ -21,6 +21,10 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const SplashPage());
     },
+    OnboardRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const OnboardPage());
+    },
     LoginRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const LoginPage());
@@ -36,16 +40,22 @@ class _$AppRouter extends RootStackRouter {
     ForgotRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const ForgotPage());
+    },
+    ProfileRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const ProfilePage());
     }
   };
 
   @override
   List<RouteConfig> get routes => [
         RouteConfig(SplashRoute.name, path: '/'),
+        RouteConfig(OnboardRoute.name, path: '/onboard-page'),
         RouteConfig(LoginRoute.name, path: '/login-page'),
         RouteConfig(RegisterRoute.name, path: '/register-page'),
         RouteConfig(RegisterSuccesRoute.name, path: '/register-succes-page'),
-        RouteConfig(ForgotRoute.name, path: '/forgot-page')
+        RouteConfig(ForgotRoute.name, path: '/forgot-page'),
+        RouteConfig(ProfileRoute.name, path: '/profile-page')
       ];
 }
 
@@ -55,6 +65,14 @@ class SplashRoute extends PageRouteInfo<void> {
   const SplashRoute() : super(SplashRoute.name, path: '/');
 
   static const String name = 'SplashRoute';
+}
+
+/// generated route for
+/// [OnboardPage]
+class OnboardRoute extends PageRouteInfo<void> {
+  const OnboardRoute() : super(OnboardRoute.name, path: '/onboard-page');
+
+  static const String name = 'OnboardRoute';
 }
 
 /// generated route for
@@ -88,4 +106,12 @@ class ForgotRoute extends PageRouteInfo<void> {
   const ForgotRoute() : super(ForgotRoute.name, path: '/forgot-page');
 
   static const String name = 'ForgotRoute';
+}
+
+/// generated route for
+/// [ProfilePage]
+class ProfileRoute extends PageRouteInfo<void> {
+  const ProfileRoute() : super(ProfileRoute.name, path: '/profile-page');
+
+  static const String name = 'ProfileRoute';
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,39 +11,61 @@ class RegisterPage extends StatelessWidget {
           child: ListView(
             padding: const EdgeInsets.all(16),
             children: [
-              const Text('Daftar'),
-              const Text('Buat akun barumu disini'),
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      children: const [
+                        Text("Cek Lokasi"),
+                        Text("Cari tempat service terdekat dari posisimu"),
+                      ],
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.notifications),
+                  ),
+                ],
+              ),
               const SizedBox(height: 8),
-              const Placeholder(
-                fallbackWidth: 300,
-                fallbackHeight: 300,
+              const Divider(),
+              const SizedBox(height: 8),
+              const CircleAvatar(
+                radius: 100,
               ),
               const SizedBox(height: 8),
               const Text('Nama Lengkap'),
               TextFormField(
                 decoration: const InputDecoration(
-                  hintText: 'Masukkan Nama Lengkap',
+                  hintText: 'Nama Lengkap',
                 ),
               ),
               const SizedBox(height: 8),
               const Text('No. HP'),
               TextFormField(
                 decoration: const InputDecoration(
-                  hintText: 'Masukkan No. HP',
+                  hintText: 'No. HP',
                 ),
               ),
               const SizedBox(height: 8),
               const Text('Email/Username'),
               TextFormField(
                 decoration: const InputDecoration(
-                  hintText: 'Masukkan Email atau Username',
+                  hintText: 'Email atau Username',
                 ),
               ),
               const SizedBox(height: 8),
               const Text('Kata Sandi'),
               TextFormField(
                 decoration: const InputDecoration(
-                  hintText: 'Masukkan Kata Sandi',
+                  hintText: 'Kata Sandi',
+                ),
+              ),
+              const SizedBox(height: 8),
+              const Text('Alamat'),
+              TextFormField(
+                decoration: const InputDecoration(
+                  hintText: 'Alamat',
                 ),
               ),
               const SizedBox(height: 8),
@@ -51,7 +73,7 @@ class RegisterPage extends StatelessWidget {
                 widthFactor: 1,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: const Text('Daftar'),
+                  child: const Text('Ubah Profil'),
                 ),
               ),
               const SizedBox(height: 8),
@@ -59,17 +81,7 @@ class RegisterPage extends StatelessWidget {
                 widthFactor: 1,
                 child: TextButton(
                   onPressed: () {},
-                  child: RichText(
-                    text: TextSpan(
-                      text: 'Sudah memiliki akun?',
-                      style: DefaultTextStyle.of(context)
-                          .style
-                          .copyWith(color: Theme.of(context).primaryColor),
-                      children: const [
-                        TextSpan(text: ' Masuk'),
-                      ],
-                    ),
-                  ),
+                  child: const Text('Kembali ke Menu Utama'),
                 ),
               ),
             ],
