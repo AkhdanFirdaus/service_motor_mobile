@@ -18,9 +18,10 @@ class OnboardItemWidget extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.6,
           color: Colors.grey.shade400,
           child: const Center(
-            child: Placeholder(
-              fallbackHeight: 300,
-              fallbackWidth: 300,
+            child: SizedBox(
+              height: 200,
+              width: 200,
+              child: Placeholder(),
             ),
           ),
         ),

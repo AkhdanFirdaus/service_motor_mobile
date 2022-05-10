@@ -12,6 +12,8 @@ class OnboardPage extends StatefulWidget {
 class _OnboardPageState extends State<OnboardPage> {
   late PageController pageController;
 
+  int currentIndex = 0;
+
   @override
   void initState() {
     pageController = PageController();
@@ -33,6 +35,11 @@ class _OnboardPageState extends State<OnboardPage> {
             Expanded(
               child: PageView.builder(
                 controller: pageController,
+                onPageChanged: (index) {
+                  setState(() {
+                    currentIndex = index;
+                  });
+                },
                 itemCount: 3,
                 itemBuilder: (context, index) {
                   return OnboardItemWidget(
@@ -43,22 +50,36 @@ class _OnboardPageState extends State<OnboardPage> {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                pageController.nextPage(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeIn,
+                );
+                setState(() {
+                  currentIndex++;
+                });
+              },
               child: Container(
                 padding: const EdgeInsets.all(16),
                 child: Center(
                   child: Row(
                     children: [
-                      for (int i = 0; i < 3; i++)
-                        if (pageController.page == 2)
-                          ElevatedButton(
-                            onPressed: () {
-                              context.router.push(const LoginRoute());
-                            },
-                            child: const Text('Mulai'),
-                          )
-                        else
+                      if (currentIndex == 2) ...[
+                        for (int i = 0; i < 2; i++)
                           const CircleAvatar(radius: 12),
+                        ElevatedButton(
+                          onPressed: () {
+                            context.router.push(const LoginRoute());
+                          },
+                          child: const Text('Mulai'),
+                        )
+                      ] else
+                        for (int i = 0; i < 3; i++)
+                          CircleAvatar(
+                            radius: 12,
+                            backgroundColor:
+                                i == currentIndex ? Colors.blue : Colors.grey,
+                          ),
                     ],
                   ),
                 ),

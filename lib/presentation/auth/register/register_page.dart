@@ -12,42 +12,51 @@ class RegisterPage extends StatelessWidget {
           child: ListView(
             padding: const EdgeInsets.all(16),
             children: [
-              const Text('Daftar'),
-              const Text('Buat akun barumu disini'),
-              const SizedBox(height: 8),
-              const Placeholder(
-                fallbackWidth: 300,
-                fallbackHeight: 300,
+              const Text(
+                'Daftar',
+                textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 8),
+              const Text(
+                'Buat akun barumu disini',
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
+              const Center(
+                child: SizedBox(
+                  width: 200,
+                  height: 200,
+                  child: Placeholder(),
+                ),
+              ),
+              const SizedBox(height: 16),
               const Text('Nama Lengkap'),
               TextFormField(
                 decoration: const InputDecoration(
                   hintText: 'Masukkan Nama Lengkap',
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               const Text('No. HP'),
               TextFormField(
                 decoration: const InputDecoration(
                   hintText: 'Masukkan No. HP',
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               const Text('Email/Username'),
               TextFormField(
                 decoration: const InputDecoration(
                   hintText: 'Masukkan Email atau Username',
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               const Text('Kata Sandi'),
               TextFormField(
                 decoration: const InputDecoration(
                   hintText: 'Masukkan Kata Sandi',
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               FractionallySizedBox(
                 widthFactor: 1,
                 child: ElevatedButton(
@@ -57,7 +66,7 @@ class RegisterPage extends StatelessWidget {
                   child: const Text('Daftar'),
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               FractionallySizedBox(
                 widthFactor: 1,
                 child: TextButton(
@@ -65,14 +74,14 @@ class RegisterPage extends StatelessWidget {
                     context.router.replace(const LoginRoute());
                   },
                   child: RichText(
-                    text: TextSpan(
+                    text: const TextSpan(
                       text: 'Sudah memiliki akun?',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyText1!
-                          .copyWith(color: Colors.blue),
-                      children: const [
-                        TextSpan(text: ' Masuk'),
+                      style: TextStyle(color: Colors.blue),
+                      children: [
+                        TextSpan(
+                          text: ' Masuk',
+                          style: TextStyle(color: Colors.black),
+                        ),
                       ],
                     ),
                   ),

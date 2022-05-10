@@ -12,10 +12,12 @@ class ForgotPage extends StatelessWidget {
           child: ListView(
             padding: const EdgeInsets.all(16),
             children: [
-              BackButton(
-                onPressed: () {
-                  context.router.pop();
-                },
+              ListTile(
+                leading: BackButton(
+                  onPressed: () {
+                    context.router.pop();
+                  },
+                ),
               ),
               const SizedBox(height: 8),
               const Text('Lupa Kata Sandi'),

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    AutoRouter.of(context);
     return Scaffold(
       body: SafeArea(
         child: Form(
@@ -16,16 +18,16 @@ class ProfilePage extends StatelessWidget {
                 subtitle:
                     const Text("Cari tempat service terdekat dari posisimu"),
                 trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.router.push(const NotificationRoute());
+                  },
                   icon: const Icon(Icons.notifications),
                 ),
               ),
               const SizedBox(height: 8),
               const Divider(),
               const SizedBox(height: 8),
-              const CircleAvatar(
-                radius: 100,
-              ),
+              const CircleAvatar(radius: 50),
               const SizedBox(height: 8),
               const Text('Nama Lengkap'),
               TextFormField(

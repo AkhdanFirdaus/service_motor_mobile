@@ -12,35 +12,43 @@ class LoginPage extends StatelessWidget {
           child: ListView(
             padding: const EdgeInsets.all(16),
             children: [
-              const Text('Masuk'),
               const Text(
-                  'Mulai Pengalaman Reparasi Motor yang cepat dan efektif'),
-              const SizedBox(height: 8),
-              const Placeholder(
-                fallbackWidth: 300,
-                fallbackHeight: 300,
+                'Masuk',
+                textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 8),
+              const Text(
+                'Mulai Pengalaman Reparasi Motor yang cepat dan efektif',
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
+              const Center(
+                child: SizedBox(
+                  width: 200,
+                  height: 200,
+                  child: Placeholder(),
+                ),
+              ),
+              const SizedBox(height: 16),
               const Text('Email/Username'),
               TextFormField(
                 decoration: const InputDecoration(
                   hintText: 'Masukkan Email atau Username',
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               TextFormField(
                 decoration: const InputDecoration(
                   hintText: 'Masukkan Kata Sandi',
                 ),
               ),
               const Text('Kata Sandi'),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               CheckboxListTile(
                 value: false,
                 onChanged: (value) {},
                 title: const Text('Masuk Sebagai Teknisi'),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               FractionallySizedBox(
                 widthFactor: 1,
                 child: ElevatedButton(
@@ -54,12 +62,12 @@ class LoginPage extends StatelessWidget {
                 widthFactor: 1,
                 child: TextButton(
                   onPressed: () {
-                    context.router.replace(const ForgotRoute());
+                    context.router.push(const ForgotRoute());
                   },
                   child: const Text('Lupa Kata Sandi'),
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               FractionallySizedBox(
                 widthFactor: 1,
                 child: TextButton(
@@ -67,14 +75,14 @@ class LoginPage extends StatelessWidget {
                     context.router.replace(const RegisterRoute());
                   },
                   child: RichText(
-                    text: TextSpan(
+                    text: const TextSpan(
                       text: 'Belum memiliki akun?',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyText1!
-                          .copyWith(color: Colors.blue),
-                      children: const [
-                        TextSpan(text: ' Daftar'),
+                      style: TextStyle(color: Colors.blue),
+                      children: [
+                        TextSpan(
+                          text: ' Daftar',
+                          style: TextStyle(color: Colors.black),
+                        ),
                       ],
                     ),
                   ),

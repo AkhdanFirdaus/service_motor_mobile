@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
-class TicketDetailPage extends StatelessWidget {
-  const TicketDetailPage({Key? key}) : super(key: key);
+class HistoryDetailPage extends StatelessWidget {
+  const HistoryDetailPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,17 +47,36 @@ class TicketDetailPage extends StatelessWidget {
               textAlign: TextAlign.justify,
             ),
             const SizedBox(height: 16),
-            FractionallySizedBox(
-              widthFactor: 1,
-              child: ElevatedButton(
-                onPressed: () {},
-                child: const Text('Hubungi Admin'),
+            const Text(
+              'Detail Reparasi',
+              textAlign: TextAlign.left,
+            ),
+            for (int i = 0; i < 3; i++)
+              ListTile(
+                leading: const Text('●'),
+                title: Text('Benerin ini sejumlah $i'),
+              ),
+            const SizedBox(height: 16),
+            const Text(
+              'Total Pembayaran',
+              textAlign: TextAlign.left,
+            ),
+            RichText(
+              text: const TextSpan(
+                text: 'Rp. 280.000',
+                style: TextStyle(color: Colors.red),
+                children: [
+                  TextSpan(
+                    text: ' Sudah dibayar',
+                    style: TextStyle(color: Colors.green),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 16),
             FractionallySizedBox(
               widthFactor: 1,
-              child: OutlinedButton(
+              child: ElevatedButton(
                 onPressed: () {
                   context.router.pop();
                 },
