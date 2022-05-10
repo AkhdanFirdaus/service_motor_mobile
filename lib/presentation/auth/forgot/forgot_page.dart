@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
 class ForgotPage extends StatelessWidget {
   const ForgotPage({Key? key}) : super(key: key);
@@ -11,6 +12,12 @@ class ForgotPage extends StatelessWidget {
           child: ListView(
             padding: const EdgeInsets.all(16),
             children: [
+              BackButton(
+                onPressed: () {
+                  context.router.pop();
+                },
+              ),
+              const SizedBox(height: 8),
               const Text('Lupa Kata Sandi'),
               const Text(
                   'Masukkan emailmu untuk mengatur ulang kata sandi baru'),

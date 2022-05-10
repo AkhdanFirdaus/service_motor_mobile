@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -50,7 +51,9 @@ class RegisterPage extends StatelessWidget {
               FractionallySizedBox(
                 widthFactor: 1,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.router.replace(const RegisterSuccesRoute());
+                  },
                   child: const Text('Daftar'),
                 ),
               ),
@@ -58,13 +61,16 @@ class RegisterPage extends StatelessWidget {
               FractionallySizedBox(
                 widthFactor: 1,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.router.replace(const LoginRoute());
+                  },
                   child: RichText(
                     text: TextSpan(
                       text: 'Sudah memiliki akun?',
-                      style: DefaultTextStyle.of(context)
-                          .style
-                          .copyWith(color: Theme.of(context).primaryColor),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText1!
+                          .copyWith(color: Colors.blue),
                       children: const [
                         TextSpan(text: ' Masuk'),
                       ],

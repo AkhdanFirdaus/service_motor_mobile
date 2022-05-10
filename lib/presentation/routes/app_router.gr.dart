@@ -44,10 +44,6 @@ class _$AppRouter extends RootStackRouter {
     ForgotRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const ForgotPage());
-    },
-    ProfileRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const ProfilePage());
     }
   };
 
@@ -59,8 +55,7 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(LoginRoute.name, path: '/login-page'),
         RouteConfig(RegisterRoute.name, path: '/register-page'),
         RouteConfig(RegisterSuccesRoute.name, path: '/register-succes-page'),
-        RouteConfig(ForgotRoute.name, path: '/forgot-page'),
-        RouteConfig(ProfileRoute.name, path: '/profile-page')
+        RouteConfig(ForgotRoute.name, path: '/forgot-page')
       ];
 }
 
@@ -120,12 +115,4 @@ class ForgotRoute extends PageRouteInfo<void> {
   const ForgotRoute() : super(ForgotRoute.name, path: '/forgot-page');
 
   static const String name = 'ForgotRoute';
-}
-
-/// generated route for
-/// [ProfilePage]
-class ProfileRoute extends PageRouteInfo<void> {
-  const ProfileRoute() : super(ProfileRoute.name, path: '/profile-page');
-
-  static const String name = 'ProfileRoute';
 }

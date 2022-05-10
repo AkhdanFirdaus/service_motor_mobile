@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
 class RegisterSuccesPage extends StatelessWidget {
   const RegisterSuccesPage({Key? key}) : super(key: key);
@@ -22,7 +23,9 @@ class RegisterSuccesPage extends StatelessWidget {
               FractionallySizedBox(
                 widthFactor: 1,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.router.replace(const LoginRoute());
+                  },
                   child: const Text('Kembali ke menu masuk'),
                 ),
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -43,14 +44,18 @@ class LoginPage extends StatelessWidget {
               FractionallySizedBox(
                 widthFactor: 1,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.router.replace(const MainLayoutRoute());
+                  },
                   child: const Text('Masuk'),
                 ),
               ),
               FractionallySizedBox(
                 widthFactor: 1,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.router.replace(const ForgotRoute());
+                  },
                   child: const Text('Lupa Kata Sandi'),
                 ),
               ),
@@ -58,13 +63,16 @@ class LoginPage extends StatelessWidget {
               FractionallySizedBox(
                 widthFactor: 1,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.router.replace(const RegisterRoute());
+                  },
                   child: RichText(
                     text: TextSpan(
                       text: 'Belum memiliki akun?',
-                      style: DefaultTextStyle.of(context)
-                          .style
-                          .copyWith(color: Theme.of(context).primaryColor),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText1!
+                          .copyWith(color: Colors.blue),
                       children: const [
                         TextSpan(text: ' Daftar'),
                       ],
