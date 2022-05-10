@@ -11,21 +11,14 @@ class ProfilePage extends StatelessWidget {
           child: ListView(
             padding: const EdgeInsets.all(16),
             children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      children: const [
-                        Text("Cek Lokasi"),
-                        Text("Cari tempat service terdekat dari posisimu"),
-                      ],
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.notifications),
-                  ),
-                ],
+              ListTile(
+                title: const Text("Cek Lokasi"),
+                subtitle:
+                    const Text("Cari tempat service terdekat dari posisimu"),
+                trailing: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.notifications),
+                ),
               ),
               const SizedBox(height: 8),
               const Divider(),

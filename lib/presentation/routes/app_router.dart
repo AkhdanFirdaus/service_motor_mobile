@@ -5,6 +5,7 @@ import 'package:service_motor_mobile/presentation/auth/login/login_page.dart';
 import 'package:service_motor_mobile/presentation/auth/profile/profile_page.dart';
 import 'package:service_motor_mobile/presentation/auth/register/register_page.dart';
 import 'package:service_motor_mobile/presentation/auth/register/register_success_page.dart';
+import 'package:service_motor_mobile/presentation/core/main_layout.dart';
 import 'package:service_motor_mobile/presentation/onboard/onboard_page.dart';
 import 'package:service_motor_mobile/presentation/splash/splash_page.dart';
 
@@ -17,6 +18,7 @@ part 'app_router.gr.dart';
   routes: [
     AutoRoute(page: SplashPage, initial: true),
     AutoRoute(page: OnboardPage),
+    AutoRoute(page: MainLayoutPage),
     AutoRoute(page: LoginPage),
     AutoRoute(page: RegisterPage),
     AutoRoute(page: RegisterSuccesPage),

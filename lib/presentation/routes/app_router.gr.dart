@@ -25,6 +25,10 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const OnboardPage());
     },
+    MainLayoutRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const MainLayoutPage());
+    },
     LoginRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const LoginPage());
@@ -51,6 +55,7 @@ class _$AppRouter extends RootStackRouter {
   List<RouteConfig> get routes => [
         RouteConfig(SplashRoute.name, path: '/'),
         RouteConfig(OnboardRoute.name, path: '/onboard-page'),
+        RouteConfig(MainLayoutRoute.name, path: '/main-layout-page'),
         RouteConfig(LoginRoute.name, path: '/login-page'),
         RouteConfig(RegisterRoute.name, path: '/register-page'),
         RouteConfig(RegisterSuccesRoute.name, path: '/register-succes-page'),
@@ -73,6 +78,15 @@ class OnboardRoute extends PageRouteInfo<void> {
   const OnboardRoute() : super(OnboardRoute.name, path: '/onboard-page');
 
   static const String name = 'OnboardRoute';
+}
+
+/// generated route for
+/// [MainLayoutPage]
+class MainLayoutRoute extends PageRouteInfo<void> {
+  const MainLayoutRoute()
+      : super(MainLayoutRoute.name, path: '/main-layout-page');
+
+  static const String name = 'MainLayoutRoute';
 }
 
 /// generated route for
