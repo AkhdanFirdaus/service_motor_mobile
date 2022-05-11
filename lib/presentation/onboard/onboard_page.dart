@@ -59,29 +59,40 @@ class _OnboardPageState extends State<OnboardPage> {
                   currentIndex++;
                 });
               },
-              child: Container(
-                padding: const EdgeInsets.all(16),
-                child: Center(
-                  child: Row(
-                    children: [
-                      if (currentIndex == 2) ...[
-                        for (int i = 0; i < 2; i++)
-                          const CircleAvatar(radius: 12),
-                        ElevatedButton(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (currentIndex == 2) ...[
+                      for (int i = 0; i < 2; i++)
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: CircleAvatar(
+                            radius: 12,
+                            backgroundColor: Colors.grey,
+                          ),
+                        ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(
                           onPressed: () {
                             context.router.push(const LoginRoute());
                           },
                           child: const Text('Mulai'),
-                        )
-                      ] else
-                        for (int i = 0; i < 3; i++)
-                          CircleAvatar(
+                        ),
+                      )
+                    ] else
+                      for (int i = 0; i < 3; i++)
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircleAvatar(
                             radius: 12,
                             backgroundColor:
                                 i == currentIndex ? Colors.blue : Colors.grey,
                           ),
-                    ],
-                  ),
+                        ),
+                  ],
                 ),
               ),
             ),

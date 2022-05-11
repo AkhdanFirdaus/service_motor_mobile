@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  bool isTechnician = false;
+  bool isObsecure = true;
 
   @override
   Widget build(BuildContext context) {
@@ -36,16 +44,32 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
+              const Text('Kata Sandi'),
               TextFormField(
-                decoration: const InputDecoration(
+                obscureText: isObsecure,
+                decoration: InputDecoration(
                   hintText: 'Masukkan Kata Sandi',
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isObsecure = !isObsecure;
+                      });
+                    },
+                    icon: Icon(
+                      isObsecure ? Icons.lock : Icons.lock_open,
+                    ),
+                  ),
                 ),
               ),
-              const Text('Kata Sandi'),
               const SizedBox(height: 16),
               CheckboxListTile(
-                value: false,
-                onChanged: (value) {},
+                value: isTechnician,
+                onChanged: (value) {
+                  setState(() {
+                    isTechnician = !isTechnician;
+                  });
+                },
+                controlAffinity: ListTileControlAffinity.leading,
                 title: const Text('Masuk Sebagai Teknisi'),
               ),
               const SizedBox(height: 16),

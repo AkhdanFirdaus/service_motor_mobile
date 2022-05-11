@@ -50,7 +50,9 @@ class TicketDetailPage extends StatelessWidget {
             FractionallySizedBox(
               widthFactor: 1,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.router.push(const TicketChatRoute());
+                },
                 child: const Text('Hubungi Admin'),
               ),
             ),

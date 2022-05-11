@@ -141,7 +141,6 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 16),
             for (int i = 0; i < 3; i++)
               Container(
                 margin: const EdgeInsets.all(16),

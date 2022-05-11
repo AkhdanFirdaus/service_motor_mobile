@@ -24,59 +24,51 @@ class ProfilePage extends StatelessWidget {
                   icon: const Icon(Icons.notifications),
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               const Divider(),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               const CircleAvatar(radius: 50),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               const Text('Nama Lengkap'),
               TextFormField(
                 decoration: const InputDecoration(
                   hintText: 'Nama Lengkap',
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               const Text('No. HP'),
               TextFormField(
                 decoration: const InputDecoration(
                   hintText: 'No. HP',
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               const Text('Email/Username'),
               TextFormField(
                 decoration: const InputDecoration(
                   hintText: 'Email atau Username',
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               const Text('Kata Sandi'),
               TextFormField(
                 decoration: const InputDecoration(
                   hintText: 'Kata Sandi',
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               const Text('Alamat'),
               TextFormField(
                 decoration: const InputDecoration(
                   hintText: 'Alamat',
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
               FractionallySizedBox(
                 widthFactor: 1,
                 child: ElevatedButton(
                   onPressed: () {},
                   child: const Text('Ubah Profil'),
-                ),
-              ),
-              const SizedBox(height: 8),
-              FractionallySizedBox(
-                widthFactor: 1,
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text('Kembali ke Menu Utama'),
                 ),
               ),
             ],
