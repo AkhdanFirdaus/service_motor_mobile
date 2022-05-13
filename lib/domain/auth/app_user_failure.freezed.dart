@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'user_failure.dart';
+part of 'app_user_failure.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$UserFailure {
+mixin _$AppUserFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unexpected,
@@ -58,19 +58,20 @@ mixin _$UserFailure {
 }
 
 /// @nodoc
-abstract class $UserFailureCopyWith<$Res> {
-  factory $UserFailureCopyWith(
-          UserFailure value, $Res Function(UserFailure) then) =
-      _$UserFailureCopyWithImpl<$Res>;
+abstract class $AppUserFailureCopyWith<$Res> {
+  factory $AppUserFailureCopyWith(
+          AppUserFailure value, $Res Function(AppUserFailure) then) =
+      _$AppUserFailureCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UserFailureCopyWithImpl<$Res> implements $UserFailureCopyWith<$Res> {
-  _$UserFailureCopyWithImpl(this._value, this._then);
+class _$AppUserFailureCopyWithImpl<$Res>
+    implements $AppUserFailureCopyWith<$Res> {
+  _$AppUserFailureCopyWithImpl(this._value, this._then);
 
-  final UserFailure _value;
+  final AppUserFailure _value;
   // ignore: unused_field
-  final $Res Function(UserFailure) _then;
+  final $Res Function(AppUserFailure) _then;
 }
 
 /// @nodoc
@@ -81,7 +82,8 @@ abstract class _$$_UnexpectedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_UnexpectedCopyWithImpl<$Res> extends _$UserFailureCopyWithImpl<$Res>
+class __$$_UnexpectedCopyWithImpl<$Res>
+    extends _$AppUserFailureCopyWithImpl<$Res>
     implements _$$_UnexpectedCopyWith<$Res> {
   __$$_UnexpectedCopyWithImpl(
       _$_Unexpected _value, $Res Function(_$_Unexpected) _then)
@@ -98,7 +100,7 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   String toString() {
-    return 'UserFailure.unexpected()';
+    return 'AppUserFailure.unexpected()';
   }
 
   @override
@@ -174,7 +176,7 @@ class _$_Unexpected implements _Unexpected {
   }
 }
 
-abstract class _Unexpected implements UserFailure {
+abstract class _Unexpected implements AppUserFailure {
   const factory _Unexpected() = _$_Unexpected;
 }
 
@@ -187,7 +189,7 @@ abstract class _$$_InsufficientPermissionsCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InsufficientPermissionsCopyWithImpl<$Res>
-    extends _$UserFailureCopyWithImpl<$Res>
+    extends _$AppUserFailureCopyWithImpl<$Res>
     implements _$$_InsufficientPermissionsCopyWith<$Res> {
   __$$_InsufficientPermissionsCopyWithImpl(_$_InsufficientPermissions _value,
       $Res Function(_$_InsufficientPermissions) _then)
@@ -205,7 +207,7 @@ class _$_InsufficientPermissions implements _InsufficientPermissions {
 
   @override
   String toString() {
-    return 'UserFailure.insufficientPermissions()';
+    return 'AppUserFailure.insufficientPermissions()';
   }
 
   @override
@@ -282,6 +284,6 @@ class _$_InsufficientPermissions implements _InsufficientPermissions {
   }
 }
 
-abstract class _InsufficientPermissions implements UserFailure {
+abstract class _InsufficientPermissions implements AppUserFailure {
   const factory _InsufficientPermissions() = _$_InsufficientPermissions;
 }
