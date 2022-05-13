@@ -22,7 +22,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) multiline,
-    required TResult Function(T failedValue, int max) invalidEmail,
+    required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
   }) =>
       throw _privateConstructorUsedError;
@@ -31,7 +31,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiline,
-    TResult Function(T failedValue, int max)? invalidEmail,
+    TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
   }) =>
       throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiline,
-    TResult Function(T failedValue, int max)? invalidEmail,
+    TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
     required TResult orElse(),
   }) =>
@@ -191,7 +191,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) multiline,
-    required TResult Function(T failedValue, int max) invalidEmail,
+    required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
   }) {
     return exceedingLength(failedValue, max);
@@ -203,7 +203,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiline,
-    TResult Function(T failedValue, int max)? invalidEmail,
+    TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
   }) {
     return exceedingLength?.call(failedValue, max);
@@ -215,7 +215,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiline,
-    TResult Function(T failedValue, int max)? invalidEmail,
+    TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
     required TResult orElse(),
   }) {
@@ -348,7 +348,7 @@ class _$Empty<T> implements Empty<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) multiline,
-    required TResult Function(T failedValue, int max) invalidEmail,
+    required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
   }) {
     return empty(failedValue);
@@ -360,7 +360,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiline,
-    TResult Function(T failedValue, int max)? invalidEmail,
+    TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
   }) {
     return empty?.call(failedValue);
@@ -372,7 +372,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiline,
-    TResult Function(T failedValue, int max)? invalidEmail,
+    TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
     required TResult orElse(),
   }) {
@@ -505,7 +505,7 @@ class _$Multiline<T> implements Multiline<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) multiline,
-    required TResult Function(T failedValue, int max) invalidEmail,
+    required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
   }) {
     return multiline(failedValue);
@@ -517,7 +517,7 @@ class _$Multiline<T> implements Multiline<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiline,
-    TResult Function(T failedValue, int max)? invalidEmail,
+    TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
   }) {
     return multiline?.call(failedValue);
@@ -529,7 +529,7 @@ class _$Multiline<T> implements Multiline<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiline,
-    TResult Function(T failedValue, int max)? invalidEmail,
+    TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
     required TResult orElse(),
   }) {
@@ -598,7 +598,7 @@ abstract class _$$InvalidEmailCopyWith<T, $Res>
           _$InvalidEmail<T> value, $Res Function(_$InvalidEmail<T>) then) =
       __$$InvalidEmailCopyWithImpl<T, $Res>;
   @override
-  $Res call({T failedValue, int max});
+  $Res call({T failedValue});
 }
 
 /// @nodoc
@@ -615,17 +615,12 @@ class __$$InvalidEmailCopyWithImpl<T, $Res>
   @override
   $Res call({
     Object? failedValue = freezed,
-    Object? max = freezed,
   }) {
     return _then(_$InvalidEmail<T>(
       failedValue: failedValue == freezed
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
               as T,
-      max: max == freezed
-          ? _value.max
-          : max // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -633,16 +628,14 @@ class __$$InvalidEmailCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$InvalidEmail<T> implements InvalidEmail<T> {
-  const _$InvalidEmail({required this.failedValue, required this.max});
+  const _$InvalidEmail({required this.failedValue});
 
   @override
   final T failedValue;
-  @override
-  final int max;
 
   @override
   String toString() {
-    return 'ValueFailure<$T>.invalidEmail(failedValue: $failedValue, max: $max)';
+    return 'ValueFailure<$T>.invalidEmail(failedValue: $failedValue)';
   }
 
   @override
@@ -651,15 +644,12 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
         (other.runtimeType == runtimeType &&
             other is _$InvalidEmail<T> &&
             const DeepCollectionEquality()
-                .equals(other.failedValue, failedValue) &&
-            const DeepCollectionEquality().equals(other.max, max));
+                .equals(other.failedValue, failedValue));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(failedValue),
-      const DeepCollectionEquality().hash(max));
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
 
   @JsonKey(ignore: true)
   @override
@@ -672,10 +662,10 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) multiline,
-    required TResult Function(T failedValue, int max) invalidEmail,
+    required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
   }) {
-    return invalidEmail(failedValue, max);
+    return invalidEmail(failedValue);
   }
 
   @override
@@ -684,10 +674,10 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiline,
-    TResult Function(T failedValue, int max)? invalidEmail,
+    TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
   }) {
-    return invalidEmail?.call(failedValue, max);
+    return invalidEmail?.call(failedValue);
   }
 
   @override
@@ -696,12 +686,12 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiline,
-    TResult Function(T failedValue, int max)? invalidEmail,
+    TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
-      return invalidEmail(failedValue, max);
+      return invalidEmail(failedValue);
     }
     return orElse();
   }
@@ -748,13 +738,11 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
 }
 
 abstract class InvalidEmail<T> implements ValueFailure<T> {
-  const factory InvalidEmail(
-      {required final T failedValue,
-      required final int max}) = _$InvalidEmail<T>;
+  const factory InvalidEmail({required final T failedValue}) =
+      _$InvalidEmail<T>;
 
   @override
   T get failedValue => throw _privateConstructorUsedError;
-  int get max => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$InvalidEmailCopyWith<T, _$InvalidEmail<T>> get copyWith =>
@@ -832,7 +820,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) multiline,
-    required TResult Function(T failedValue, int max) invalidEmail,
+    required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
   }) {
     return shortPassword(failedValue);
@@ -844,7 +832,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiline,
-    TResult Function(T failedValue, int max)? invalidEmail,
+    TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
   }) {
     return shortPassword?.call(failedValue);
@@ -856,7 +844,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? multiline,
-    TResult Function(T failedValue, int max)? invalidEmail,
+    TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
     required TResult orElse(),
   }) {
