@@ -19,6 +19,7 @@ dependencies:
   chat_bubbles: ^1.2.0
   firebase_core: ^1.16.0
   firebase_auth: ^3.3.17
+  cloud_firestore: ^3.1.14
   google_sign_in: ^5.3.1
   get_it: ^7.2.0
   injectable: ^1.5.3
