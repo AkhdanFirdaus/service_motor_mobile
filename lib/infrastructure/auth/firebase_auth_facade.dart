@@ -174,4 +174,40 @@ class FirebaseAuthFacade implements IAuthFacade {
       }
     });
   }
+
+  @override
+  Future<Either<AuthFailure, Unit>> updateProfile({
+    required EmailAddress emailAddress,
+    required Password? password,
+    required PasswordConfirmation? passwordConfirmation,
+    required Fullname fullname,
+    required Address address,
+    required Phone phone,
+  }) async {
+    try {
+      final emailAddressStr = emailAddress.getOrCrash();
+      final fullnameStr = fullname.getOrCrash();
+      final addressStr = address.getOrCrash();
+      final phoneStr = phone.getOrCrash();
+
+      final appUser = AppUser(
+        email: emailAddressStr,
+        name: fullnameStr,
+        address: addressStr,
+        phone: phoneStr,
+      ).toJson();
+
+      final userDoc = await _firestore.userDocument();
+      await userDoc.set(appUser);
+      return right(unit);
+    } on FirebaseException catch (e) {
+      if (e.code == 'wrong-password' || e.code == 'user-not-found') {
+        return left(const AuthFailure.invalidEmailAndPasswordCombination());
+      } else if (e.message!.contains('PERMISSION_DENIED')) {
+        return left(const AuthFailure.serverError());
+      } else {
+        return left(const AuthFailure.unexpected());
+      }
+    }
+  }
 }

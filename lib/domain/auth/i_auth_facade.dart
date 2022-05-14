@@ -17,6 +17,14 @@ abstract class IAuthFacade {
     required Password password,
   });
   Future<Either<AuthFailure, Unit>> signInWithGoogle();
+  Future<Either<AuthFailure, Unit>> updateProfile({
+    required EmailAddress emailAddress,
+    required Password? password,
+    required PasswordConfirmation? passwordConfirmation,
+    required Fullname fullname,
+    required Address address,
+    required Phone phone,
+  });
   Future<void> signOut();
   Future<Option<AppUser>> getSignedInUser();
   Future<Either<AuthFailure, Unit>> storeGoogleUser({

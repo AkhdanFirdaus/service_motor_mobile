@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:service_motor_mobile/application/auth/user_profile/user_profile_bloc.dart';
+import 'package:service_motor_mobile/application/auth/user_profile_form/user_profile_form_bloc.dart';
+import 'package:service_motor_mobile/injection.dart';
 import 'package:service_motor_mobile/presentation/auth/profile/widgets/profile_form_widget.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -22,7 +24,11 @@ class ProfilePage extends StatelessWidget {
                 child: const CircleAvatar(),
               );
             }, loadSuccess: (e) {
-              return ProfileFormWidget(appUser: e.user);
+              return BlocProvider(
+                create: (context) => getIt<UserProfileFormBloc>()
+                  ..add(UserProfileFormEvent.started(e.user)),
+                child: ProfileFormWidget(appUser: e.user),
+              );
             }, loadFailure: (e) {
               return ListTile(
                 tileColor: Colors.red,

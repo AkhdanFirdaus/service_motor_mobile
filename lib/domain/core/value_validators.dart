@@ -46,3 +46,14 @@ Either<ValueFailure<String>, String> validateSingleLine(String input) {
     return left(ValueFailure.multiline(failedValue: input));
   }
 }
+
+Either<ValueFailure<String>, String> validateSameValue({
+  required String source,
+  required String compare,
+}) {
+  if (source == compare) {
+    return right(source);
+  } else {
+    return left(ValueFailure.sameValue(failedValue: source));
+  }
+}

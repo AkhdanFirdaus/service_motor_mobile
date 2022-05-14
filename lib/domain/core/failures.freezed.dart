@@ -24,6 +24,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) sameValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,6 +34,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? sameValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +44,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? sameValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -52,6 +55,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(SameValue<T> value) sameValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,6 +65,7 @@ mixin _$ValueFailure<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(SameValue<T> value)? sameValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +75,7 @@ mixin _$ValueFailure<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(SameValue<T> value)? sameValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -193,6 +199,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) sameValue,
   }) {
     return exceedingLength(failedValue, max);
   }
@@ -205,6 +212,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? sameValue,
   }) {
     return exceedingLength?.call(failedValue, max);
   }
@@ -217,6 +225,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? sameValue,
     required TResult orElse(),
   }) {
     if (exceedingLength != null) {
@@ -233,6 +242,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(SameValue<T> value) sameValue,
   }) {
     return exceedingLength(this);
   }
@@ -245,6 +255,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(SameValue<T> value)? sameValue,
   }) {
     return exceedingLength?.call(this);
   }
@@ -257,6 +268,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(SameValue<T> value)? sameValue,
     required TResult orElse(),
   }) {
     if (exceedingLength != null) {
@@ -350,6 +362,7 @@ class _$Empty<T> implements Empty<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) sameValue,
   }) {
     return empty(failedValue);
   }
@@ -362,6 +375,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? sameValue,
   }) {
     return empty?.call(failedValue);
   }
@@ -374,6 +388,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? sameValue,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -390,6 +405,7 @@ class _$Empty<T> implements Empty<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(SameValue<T> value) sameValue,
   }) {
     return empty(this);
   }
@@ -402,6 +418,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(SameValue<T> value)? sameValue,
   }) {
     return empty?.call(this);
   }
@@ -414,6 +431,7 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(SameValue<T> value)? sameValue,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -507,6 +525,7 @@ class _$Multiline<T> implements Multiline<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) sameValue,
   }) {
     return multiline(failedValue);
   }
@@ -519,6 +538,7 @@ class _$Multiline<T> implements Multiline<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? sameValue,
   }) {
     return multiline?.call(failedValue);
   }
@@ -531,6 +551,7 @@ class _$Multiline<T> implements Multiline<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? sameValue,
     required TResult orElse(),
   }) {
     if (multiline != null) {
@@ -547,6 +568,7 @@ class _$Multiline<T> implements Multiline<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(SameValue<T> value) sameValue,
   }) {
     return multiline(this);
   }
@@ -559,6 +581,7 @@ class _$Multiline<T> implements Multiline<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(SameValue<T> value)? sameValue,
   }) {
     return multiline?.call(this);
   }
@@ -571,6 +594,7 @@ class _$Multiline<T> implements Multiline<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(SameValue<T> value)? sameValue,
     required TResult orElse(),
   }) {
     if (multiline != null) {
@@ -664,6 +688,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) sameValue,
   }) {
     return invalidEmail(failedValue);
   }
@@ -676,6 +701,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? sameValue,
   }) {
     return invalidEmail?.call(failedValue);
   }
@@ -688,6 +714,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? sameValue,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -704,6 +731,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(SameValue<T> value) sameValue,
   }) {
     return invalidEmail(this);
   }
@@ -716,6 +744,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(SameValue<T> value)? sameValue,
   }) {
     return invalidEmail?.call(this);
   }
@@ -728,6 +757,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(SameValue<T> value)? sameValue,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -822,6 +852,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) sameValue,
   }) {
     return shortPassword(failedValue);
   }
@@ -834,6 +865,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? sameValue,
   }) {
     return shortPassword?.call(failedValue);
   }
@@ -846,6 +878,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? sameValue,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -862,6 +895,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(SameValue<T> value) sameValue,
   }) {
     return shortPassword(this);
   }
@@ -874,6 +908,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(SameValue<T> value)? sameValue,
   }) {
     return shortPassword?.call(this);
   }
@@ -886,6 +921,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(SameValue<T> value)? sameValue,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -904,5 +940,168 @@ abstract class ShortPassword<T> implements ValueFailure<T> {
   @override
   @JsonKey(ignore: true)
   _$$ShortPasswordCopyWith<T, _$ShortPassword<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SameValueCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory _$$SameValueCopyWith(
+          _$SameValue<T> value, $Res Function(_$SameValue<T>) then) =
+      __$$SameValueCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class __$$SameValueCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$$SameValueCopyWith<T, $Res> {
+  __$$SameValueCopyWithImpl(
+      _$SameValue<T> _value, $Res Function(_$SameValue<T>) _then)
+      : super(_value, (v) => _then(v as _$SameValue<T>));
+
+  @override
+  _$SameValue<T> get _value => super._value as _$SameValue<T>;
+
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(_$SameValue<T>(
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SameValue<T> implements SameValue<T> {
+  const _$SameValue({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.sameValue(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SameValue<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$SameValueCopyWith<T, _$SameValue<T>> get copyWith =>
+      __$$SameValueCopyWithImpl<T, _$SameValue<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) multiline,
+    required TResult Function(T failedValue) invalidEmail,
+    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) sameValue,
+  }) {
+    return sameValue(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? sameValue,
+  }) {
+    return sameValue?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? sameValue,
+    required TResult orElse(),
+  }) {
+    if (sameValue != null) {
+      return sameValue(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(Multiline<T> value) multiline,
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(SameValue<T> value) sameValue,
+  }) {
+    return sameValue(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(SameValue<T> value)? sameValue,
+  }) {
+    return sameValue?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(SameValue<T> value)? sameValue,
+    required TResult orElse(),
+  }) {
+    if (sameValue != null) {
+      return sameValue(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SameValue<T> implements ValueFailure<T> {
+  const factory SameValue({required final T failedValue}) = _$SameValue<T>;
+
+  @override
+  T get failedValue => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$SameValueCopyWith<T, _$SameValue<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
