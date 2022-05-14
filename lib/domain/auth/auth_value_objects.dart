@@ -1,0 +1,69 @@
+import 'package:dartz/dartz.dart';
+import 'package:service_motor_mobile/domain/core/failures.dart';
+import 'package:service_motor_mobile/domain/core/value_objects.dart';
+import 'package:service_motor_mobile/domain/core/value_validators.dart';
+
+class EmailAddress extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory EmailAddress(String input) {
+    return EmailAddress._(
+      validateEmailAddress(input),
+    );
+  }
+
+  const EmailAddress._(this.value);
+}
+
+class Password extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory Password(String input) {
+    return Password._(
+      validatePassword(input),
+    );
+  }
+
+  const Password._(this.value);
+}
+
+class Phone extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory Phone(String input) {
+    return Phone._(
+      validateStringNotEmpty(input).flatMap(validateSingleLine),
+    );
+  }
+
+  const Phone._(this.value);
+}
+
+class Address extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory Address(String input) {
+    return Address._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  const Address._(this.value);
+}
+
+class Fullname extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory Fullname(String input) {
+    return Fullname._(
+      validateStringNotEmpty(input).flatMap(validateSingleLine),
+    );
+  }
+
+  const Fullname._(this.value);
+}

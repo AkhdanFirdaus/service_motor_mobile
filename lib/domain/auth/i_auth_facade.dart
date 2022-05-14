@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:service_motor_mobile/domain/auth/app_user.dart';
 import 'package:service_motor_mobile/domain/auth/app_user_failure.dart';
 import 'package:service_motor_mobile/domain/auth/auth_failure.dart';
-import 'package:service_motor_mobile/domain/core/value_objects.dart';
+import 'package:service_motor_mobile/domain/auth/auth_value_objects.dart';
 
 abstract class IAuthFacade {
   Future<Either<AuthFailure, Unit>> registerWithEmailPassword({

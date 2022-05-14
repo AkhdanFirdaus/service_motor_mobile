@@ -1052,9 +1052,9 @@ abstract class _RegisterWithEmailAndPasswordPressed
 mixin _$RegisterFormState {
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
-  String get fullname => throw _privateConstructorUsedError;
-  String get phone => throw _privateConstructorUsedError;
-  String get address => throw _privateConstructorUsedError;
+  Fullname get fullname => throw _privateConstructorUsedError;
+  Phone get phone => throw _privateConstructorUsedError;
+  Address get address => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
@@ -1073,9 +1073,9 @@ abstract class $RegisterFormStateCopyWith<$Res> {
   $Res call(
       {EmailAddress emailAddress,
       Password password,
-      String fullname,
-      String phone,
-      String address,
+      Fullname fullname,
+      Phone phone,
+      Address address,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
@@ -1113,15 +1113,15 @@ class _$RegisterFormStateCopyWithImpl<$Res>
       fullname: fullname == freezed
           ? _value.fullname
           : fullname // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fullname,
       phone: phone == freezed
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Phone,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -1148,9 +1148,9 @@ abstract class _$$_RegisterFormStateCopyWith<$Res>
   $Res call(
       {EmailAddress emailAddress,
       Password password,
-      String fullname,
-      String phone,
-      String address,
+      Fullname fullname,
+      Phone phone,
+      Address address,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
@@ -1190,15 +1190,15 @@ class __$$_RegisterFormStateCopyWithImpl<$Res>
       fullname: fullname == freezed
           ? _value.fullname
           : fullname // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Fullname,
       phone: phone == freezed
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Phone,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Address,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -1233,11 +1233,11 @@ class _$_RegisterFormState implements _RegisterFormState {
   @override
   final Password password;
   @override
-  final String fullname;
+  final Fullname fullname;
   @override
-  final String phone;
+  final Phone phone;
   @override
-  final String address;
+  final Address address;
   @override
   final bool showErrorMessages;
   @override
@@ -1292,9 +1292,9 @@ abstract class _RegisterFormState implements RegisterFormState {
   const factory _RegisterFormState(
       {required final EmailAddress emailAddress,
       required final Password password,
-      required final String fullname,
-      required final String phone,
-      required final String address,
+      required final Fullname fullname,
+      required final Phone phone,
+      required final Address address,
       required final bool showErrorMessages,
       required final bool isSubmitting,
       required final Option<Either<AuthFailure, Unit>>
@@ -1305,11 +1305,11 @@ abstract class _RegisterFormState implements RegisterFormState {
   @override
   Password get password => throw _privateConstructorUsedError;
   @override
-  String get fullname => throw _privateConstructorUsedError;
+  Fullname get fullname => throw _privateConstructorUsedError;
   @override
-  String get phone => throw _privateConstructorUsedError;
+  Phone get phone => throw _privateConstructorUsedError;
   @override
-  String get address => throw _privateConstructorUsedError;
+  Address get address => throw _privateConstructorUsedError;
   @override
   bool get showErrorMessages => throw _privateConstructorUsedError;
   @override

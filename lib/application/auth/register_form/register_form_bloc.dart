@@ -3,8 +3,8 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:service_motor_mobile/domain/auth/auth_failure.dart';
+import 'package:service_motor_mobile/domain/auth/auth_value_objects.dart';
 import 'package:service_motor_mobile/domain/auth/i_auth_facade.dart';
-import 'package:service_motor_mobile/domain/core/value_objects.dart';
 
 part 'register_form_event.dart';
 part 'register_form_state.dart';
