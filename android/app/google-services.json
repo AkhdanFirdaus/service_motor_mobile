@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "910882897101",
+    "firebase_url": "https://service-motor-ppl-default-rtdb.firebaseio.com",
+    "project_id": "service-motor-ppl",
+    "storage_bucket": "service-motor-ppl.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910882897101:android:d476998deffae5feb6bd84",
+        "android_client_info": {
+          "package_name": "com.ppl4b.service_motor_mobile.service_motor_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910882897101-v89v37hu7glmiflp61ng87ngdks4q1l5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFOibFUOE8gCWcMIYtEjppixQuzP8-jU4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "910882897101-v89v37hu7glmiflp61ng87ngdks4q1l5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "910882897101-os835oh9i36jcmlg2l8voo6uaki346co.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ppl4b.servicemotormobile.serviceMotorMobile"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
