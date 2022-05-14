@@ -21,7 +21,6 @@ mixin _$LoginFormEvent {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() loginWithEmailAndPasswordPressed,
-    required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() loginWithGooglePressed,
   }) =>
       throw _privateConstructorUsedError;
@@ -30,7 +29,6 @@ mixin _$LoginFormEvent {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? loginWithEmailAndPasswordPressed,
-    TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? loginWithGooglePressed,
   }) =>
       throw _privateConstructorUsedError;
@@ -39,7 +37,6 @@ mixin _$LoginFormEvent {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? loginWithEmailAndPasswordPressed,
-    TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? loginWithGooglePressed,
     required TResult orElse(),
   }) =>
@@ -50,8 +47,6 @@ mixin _$LoginFormEvent {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_LoginWithEmailAndPasswordPressed value)
         loginWithEmailAndPasswordPressed,
-    required TResult Function(_RegisterWithEmailAndPasswordPressed value)
-        registerWithEmailAndPasswordPressed,
     required TResult Function(_LoginWithGooglePressed value)
         loginWithGooglePressed,
   }) =>
@@ -62,8 +57,6 @@ mixin _$LoginFormEvent {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_LoginWithEmailAndPasswordPressed value)?
         loginWithEmailAndPasswordPressed,
-    TResult Function(_RegisterWithEmailAndPasswordPressed value)?
-        registerWithEmailAndPasswordPressed,
     TResult Function(_LoginWithGooglePressed value)? loginWithGooglePressed,
   }) =>
       throw _privateConstructorUsedError;
@@ -73,8 +66,6 @@ mixin _$LoginFormEvent {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_LoginWithEmailAndPasswordPressed value)?
         loginWithEmailAndPasswordPressed,
-    TResult Function(_RegisterWithEmailAndPasswordPressed value)?
-        registerWithEmailAndPasswordPressed,
     TResult Function(_LoginWithGooglePressed value)? loginWithGooglePressed,
     required TResult orElse(),
   }) =>
@@ -166,7 +157,6 @@ class _$_EmailChanged implements _EmailChanged {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() loginWithEmailAndPasswordPressed,
-    required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() loginWithGooglePressed,
   }) {
     return emailChanged(emailStr);
@@ -178,7 +168,6 @@ class _$_EmailChanged implements _EmailChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? loginWithEmailAndPasswordPressed,
-    TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? loginWithGooglePressed,
   }) {
     return emailChanged?.call(emailStr);
@@ -190,7 +179,6 @@ class _$_EmailChanged implements _EmailChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? loginWithEmailAndPasswordPressed,
-    TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? loginWithGooglePressed,
     required TResult orElse(),
   }) {
@@ -207,8 +195,6 @@ class _$_EmailChanged implements _EmailChanged {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_LoginWithEmailAndPasswordPressed value)
         loginWithEmailAndPasswordPressed,
-    required TResult Function(_RegisterWithEmailAndPasswordPressed value)
-        registerWithEmailAndPasswordPressed,
     required TResult Function(_LoginWithGooglePressed value)
         loginWithGooglePressed,
   }) {
@@ -222,8 +208,6 @@ class _$_EmailChanged implements _EmailChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_LoginWithEmailAndPasswordPressed value)?
         loginWithEmailAndPasswordPressed,
-    TResult Function(_RegisterWithEmailAndPasswordPressed value)?
-        registerWithEmailAndPasswordPressed,
     TResult Function(_LoginWithGooglePressed value)? loginWithGooglePressed,
   }) {
     return emailChanged?.call(this);
@@ -236,8 +220,6 @@ class _$_EmailChanged implements _EmailChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_LoginWithEmailAndPasswordPressed value)?
         loginWithEmailAndPasswordPressed,
-    TResult Function(_RegisterWithEmailAndPasswordPressed value)?
-        registerWithEmailAndPasswordPressed,
     TResult Function(_LoginWithGooglePressed value)? loginWithGooglePressed,
     required TResult orElse(),
   }) {
@@ -326,7 +308,6 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() loginWithEmailAndPasswordPressed,
-    required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() loginWithGooglePressed,
   }) {
     return passwordChanged(passwordStr);
@@ -338,7 +319,6 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? loginWithEmailAndPasswordPressed,
-    TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? loginWithGooglePressed,
   }) {
     return passwordChanged?.call(passwordStr);
@@ -350,7 +330,6 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? loginWithEmailAndPasswordPressed,
-    TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? loginWithGooglePressed,
     required TResult orElse(),
   }) {
@@ -367,8 +346,6 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_LoginWithEmailAndPasswordPressed value)
         loginWithEmailAndPasswordPressed,
-    required TResult Function(_RegisterWithEmailAndPasswordPressed value)
-        registerWithEmailAndPasswordPressed,
     required TResult Function(_LoginWithGooglePressed value)
         loginWithGooglePressed,
   }) {
@@ -382,8 +359,6 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_LoginWithEmailAndPasswordPressed value)?
         loginWithEmailAndPasswordPressed,
-    TResult Function(_RegisterWithEmailAndPasswordPressed value)?
-        registerWithEmailAndPasswordPressed,
     TResult Function(_LoginWithGooglePressed value)? loginWithGooglePressed,
   }) {
     return passwordChanged?.call(this);
@@ -396,8 +371,6 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_LoginWithEmailAndPasswordPressed value)?
         loginWithEmailAndPasswordPressed,
-    TResult Function(_RegisterWithEmailAndPasswordPressed value)?
-        registerWithEmailAndPasswordPressed,
     TResult Function(_LoginWithGooglePressed value)? loginWithGooglePressed,
     required TResult orElse(),
   }) {
@@ -466,7 +439,6 @@ class _$_LoginWithEmailAndPasswordPressed
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() loginWithEmailAndPasswordPressed,
-    required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() loginWithGooglePressed,
   }) {
     return loginWithEmailAndPasswordPressed();
@@ -478,7 +450,6 @@ class _$_LoginWithEmailAndPasswordPressed
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? loginWithEmailAndPasswordPressed,
-    TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? loginWithGooglePressed,
   }) {
     return loginWithEmailAndPasswordPressed?.call();
@@ -490,7 +461,6 @@ class _$_LoginWithEmailAndPasswordPressed
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? loginWithEmailAndPasswordPressed,
-    TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? loginWithGooglePressed,
     required TResult orElse(),
   }) {
@@ -507,8 +477,6 @@ class _$_LoginWithEmailAndPasswordPressed
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_LoginWithEmailAndPasswordPressed value)
         loginWithEmailAndPasswordPressed,
-    required TResult Function(_RegisterWithEmailAndPasswordPressed value)
-        registerWithEmailAndPasswordPressed,
     required TResult Function(_LoginWithGooglePressed value)
         loginWithGooglePressed,
   }) {
@@ -522,8 +490,6 @@ class _$_LoginWithEmailAndPasswordPressed
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_LoginWithEmailAndPasswordPressed value)?
         loginWithEmailAndPasswordPressed,
-    TResult Function(_RegisterWithEmailAndPasswordPressed value)?
-        registerWithEmailAndPasswordPressed,
     TResult Function(_LoginWithGooglePressed value)? loginWithGooglePressed,
   }) {
     return loginWithEmailAndPasswordPressed?.call(this);
@@ -536,8 +502,6 @@ class _$_LoginWithEmailAndPasswordPressed
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_LoginWithEmailAndPasswordPressed value)?
         loginWithEmailAndPasswordPressed,
-    TResult Function(_RegisterWithEmailAndPasswordPressed value)?
-        registerWithEmailAndPasswordPressed,
     TResult Function(_LoginWithGooglePressed value)? loginWithGooglePressed,
     required TResult orElse(),
   }) {
@@ -551,143 +515,6 @@ class _$_LoginWithEmailAndPasswordPressed
 abstract class _LoginWithEmailAndPasswordPressed implements LoginFormEvent {
   const factory _LoginWithEmailAndPasswordPressed() =
       _$_LoginWithEmailAndPasswordPressed;
-}
-
-/// @nodoc
-abstract class _$$_RegisterWithEmailAndPasswordPressedCopyWith<$Res> {
-  factory _$$_RegisterWithEmailAndPasswordPressedCopyWith(
-          _$_RegisterWithEmailAndPasswordPressed value,
-          $Res Function(_$_RegisterWithEmailAndPasswordPressed) then) =
-      __$$_RegisterWithEmailAndPasswordPressedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_RegisterWithEmailAndPasswordPressedCopyWithImpl<$Res>
-    extends _$LoginFormEventCopyWithImpl<$Res>
-    implements _$$_RegisterWithEmailAndPasswordPressedCopyWith<$Res> {
-  __$$_RegisterWithEmailAndPasswordPressedCopyWithImpl(
-      _$_RegisterWithEmailAndPasswordPressed _value,
-      $Res Function(_$_RegisterWithEmailAndPasswordPressed) _then)
-      : super(
-            _value, (v) => _then(v as _$_RegisterWithEmailAndPasswordPressed));
-
-  @override
-  _$_RegisterWithEmailAndPasswordPressed get _value =>
-      super._value as _$_RegisterWithEmailAndPasswordPressed;
-}
-
-/// @nodoc
-
-class _$_RegisterWithEmailAndPasswordPressed
-    implements _RegisterWithEmailAndPasswordPressed {
-  const _$_RegisterWithEmailAndPasswordPressed();
-
-  @override
-  String toString() {
-    return 'LoginFormEvent.registerWithEmailAndPasswordPressed()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_RegisterWithEmailAndPasswordPressed);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String emailStr) emailChanged,
-    required TResult Function(String passwordStr) passwordChanged,
-    required TResult Function() loginWithEmailAndPasswordPressed,
-    required TResult Function() registerWithEmailAndPasswordPressed,
-    required TResult Function() loginWithGooglePressed,
-  }) {
-    return registerWithEmailAndPasswordPressed();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String emailStr)? emailChanged,
-    TResult Function(String passwordStr)? passwordChanged,
-    TResult Function()? loginWithEmailAndPasswordPressed,
-    TResult Function()? registerWithEmailAndPasswordPressed,
-    TResult Function()? loginWithGooglePressed,
-  }) {
-    return registerWithEmailAndPasswordPressed?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String emailStr)? emailChanged,
-    TResult Function(String passwordStr)? passwordChanged,
-    TResult Function()? loginWithEmailAndPasswordPressed,
-    TResult Function()? registerWithEmailAndPasswordPressed,
-    TResult Function()? loginWithGooglePressed,
-    required TResult orElse(),
-  }) {
-    if (registerWithEmailAndPasswordPressed != null) {
-      return registerWithEmailAndPasswordPressed();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_EmailChanged value) emailChanged,
-    required TResult Function(_PasswordChanged value) passwordChanged,
-    required TResult Function(_LoginWithEmailAndPasswordPressed value)
-        loginWithEmailAndPasswordPressed,
-    required TResult Function(_RegisterWithEmailAndPasswordPressed value)
-        registerWithEmailAndPasswordPressed,
-    required TResult Function(_LoginWithGooglePressed value)
-        loginWithGooglePressed,
-  }) {
-    return registerWithEmailAndPasswordPressed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_LoginWithEmailAndPasswordPressed value)?
-        loginWithEmailAndPasswordPressed,
-    TResult Function(_RegisterWithEmailAndPasswordPressed value)?
-        registerWithEmailAndPasswordPressed,
-    TResult Function(_LoginWithGooglePressed value)? loginWithGooglePressed,
-  }) {
-    return registerWithEmailAndPasswordPressed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EmailChanged value)? emailChanged,
-    TResult Function(_PasswordChanged value)? passwordChanged,
-    TResult Function(_LoginWithEmailAndPasswordPressed value)?
-        loginWithEmailAndPasswordPressed,
-    TResult Function(_RegisterWithEmailAndPasswordPressed value)?
-        registerWithEmailAndPasswordPressed,
-    TResult Function(_LoginWithGooglePressed value)? loginWithGooglePressed,
-    required TResult orElse(),
-  }) {
-    if (registerWithEmailAndPasswordPressed != null) {
-      return registerWithEmailAndPasswordPressed(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RegisterWithEmailAndPasswordPressed implements LoginFormEvent {
-  const factory _RegisterWithEmailAndPasswordPressed() =
-      _$_RegisterWithEmailAndPasswordPressed;
 }
 
 /// @nodoc
@@ -736,7 +563,6 @@ class _$_LoginWithGooglePressed implements _LoginWithGooglePressed {
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() loginWithEmailAndPasswordPressed,
-    required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() loginWithGooglePressed,
   }) {
     return loginWithGooglePressed();
@@ -748,7 +574,6 @@ class _$_LoginWithGooglePressed implements _LoginWithGooglePressed {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? loginWithEmailAndPasswordPressed,
-    TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? loginWithGooglePressed,
   }) {
     return loginWithGooglePressed?.call();
@@ -760,7 +585,6 @@ class _$_LoginWithGooglePressed implements _LoginWithGooglePressed {
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? loginWithEmailAndPasswordPressed,
-    TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? loginWithGooglePressed,
     required TResult orElse(),
   }) {
@@ -777,8 +601,6 @@ class _$_LoginWithGooglePressed implements _LoginWithGooglePressed {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_LoginWithEmailAndPasswordPressed value)
         loginWithEmailAndPasswordPressed,
-    required TResult Function(_RegisterWithEmailAndPasswordPressed value)
-        registerWithEmailAndPasswordPressed,
     required TResult Function(_LoginWithGooglePressed value)
         loginWithGooglePressed,
   }) {
@@ -792,8 +614,6 @@ class _$_LoginWithGooglePressed implements _LoginWithGooglePressed {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_LoginWithEmailAndPasswordPressed value)?
         loginWithEmailAndPasswordPressed,
-    TResult Function(_RegisterWithEmailAndPasswordPressed value)?
-        registerWithEmailAndPasswordPressed,
     TResult Function(_LoginWithGooglePressed value)? loginWithGooglePressed,
   }) {
     return loginWithGooglePressed?.call(this);
@@ -806,8 +626,6 @@ class _$_LoginWithGooglePressed implements _LoginWithGooglePressed {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_LoginWithEmailAndPasswordPressed value)?
         loginWithEmailAndPasswordPressed,
-    TResult Function(_RegisterWithEmailAndPasswordPressed value)?
-        registerWithEmailAndPasswordPressed,
     TResult Function(_LoginWithGooglePressed value)? loginWithGooglePressed,
     required TResult orElse(),
   }) {

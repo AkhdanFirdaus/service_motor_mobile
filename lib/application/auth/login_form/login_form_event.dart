@@ -7,8 +7,6 @@ class LoginFormEvent with _$LoginFormEvent {
       _PasswordChanged;
   const factory LoginFormEvent.loginWithEmailAndPasswordPressed() =
       _LoginWithEmailAndPasswordPressed;
-  const factory LoginFormEvent.registerWithEmailAndPasswordPressed() =
-      _RegisterWithEmailAndPasswordPressed;
   const factory LoginFormEvent.loginWithGooglePressed() =
       _LoginWithGooglePressed;
 }

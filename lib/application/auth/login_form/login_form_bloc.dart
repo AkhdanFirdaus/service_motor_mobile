@@ -54,32 +54,6 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
             authFailureOrSuccessOption: none(),
           ));
         },
-        registerWithEmailAndPasswordPressed: (e) async {
-          final isEmailValid = state.emailAddress.isValid();
-          final isPasswordValid = state.password.isValid();
-
-          if (isEmailValid && isPasswordValid) {
-            emit(state.copyWith(
-              isSubmitting: true,
-              authFailureOrSuccessOption: none(),
-            ));
-
-            final failureOrSuccess =
-                await _authFacade.registerWithEmailPassword(
-              emailAddress: state.emailAddress,
-              password: state.password,
-            );
-
-            emit(state.copyWith(
-              isSubmitting: false,
-              authFailureOrSuccessOption: optionOf(failureOrSuccess),
-            ));
-          }
-          emit(state.copyWith(
-            showErrorMessages: true,
-            authFailureOrSuccessOption: none(),
-          ));
-        },
         loginWithGooglePressed: (e) async {
           emit(state.copyWith(
             isSubmitting: true,
