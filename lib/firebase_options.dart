@@ -27,15 +27,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for linux - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return linux;
       default:
         throw UnsupportedError(
           'DefaultFirebaseOptions are not supported for this platform.',
@@ -83,5 +77,27 @@ class DefaultFirebaseOptions {
     storageBucket: 'service-motor-ppl.appspot.com',
     iosClientId: '910882897101-os835oh9i36jcmlg2l8voo6uaki346co.apps.googleusercontent.com',
     iosBundleId: 'com.ppl4b.servicemotormobile.serviceMotorMobile',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyDqlsVdYIKRi5zxqXlcH9cTgpokkl40Bto',
+    appId: '1:910882897101:web:c32848ad9b4577f4b6bd84',
+    messagingSenderId: '910882897101',
+    projectId: 'service-motor-ppl',
+    authDomain: 'service-motor-ppl.firebaseapp.com',
+    databaseURL: 'https://service-motor-ppl-default-rtdb.firebaseio.com',
+    storageBucket: 'service-motor-ppl.appspot.com',
+    measurementId: 'G-2Y4618H2PR',
+  );
+
+  static const FirebaseOptions linux = FirebaseOptions(
+    apiKey: 'AIzaSyDqlsVdYIKRi5zxqXlcH9cTgpokkl40Bto',
+    appId: '1:910882897101:web:250c39d84e4a57b7b6bd84',
+    messagingSenderId: '910882897101',
+    projectId: 'service-motor-ppl',
+    authDomain: 'service-motor-ppl.firebaseapp.com',
+    databaseURL: 'https://service-motor-ppl-default-rtdb.firebaseio.com',
+    storageBucket: 'service-motor-ppl.appspot.com',
+    measurementId: 'G-RCRF7V5G86',
   );
 }

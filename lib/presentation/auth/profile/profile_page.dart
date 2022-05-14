@@ -1,78 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:service_motor_mobile/presentation/routes/app_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:service_motor_mobile/application/auth/user_profile/user_profile_bloc.dart';
+import 'package:service_motor_mobile/presentation/auth/profile/widgets/profile_form_widget.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    AutoRouter.of(context);
     return Scaffold(
       body: SafeArea(
-        child: Form(
-          child: ListView(
-            padding: const EdgeInsets.all(16),
-            children: [
-              ListTile(
-                title: const Text("Cek Lokasi"),
-                subtitle:
-                    const Text("Cari tempat service terdekat dari posisimu"),
-                trailing: IconButton(
-                  onPressed: () {
-                    context.router.push(const NotificationRoute());
-                  },
-                  icon: const Icon(Icons.notifications),
+        child: BlocBuilder<UserProfileBloc, UserProfileState>(
+          builder: (context, state) {
+            return state.map(initial: (_) {
+              return Container();
+            }, loadingProgress: (_) {
+              return Shimmer.fromColors(
+                baseColor: Colors.grey.shade300,
+                highlightColor: Colors.white60,
+                child: const CircleAvatar(),
+              );
+            }, loadSuccess: (e) {
+              return ProfileFormWidget(appUser: e.user);
+            }, loadFailure: (e) {
+              return ListTile(
+                tileColor: Colors.red,
+                textColor: Colors.white,
+                title: Text(
+                  e.appUserFailure.map(
+                    unexpected: (_) => 'Unexpected Error',
+                    insufficientPermissions: (_) => 'Permission Error',
+                  ),
                 ),
-              ),
-              const SizedBox(height: 16),
-              const Divider(),
-              const SizedBox(height: 16),
-              const CircleAvatar(radius: 50),
-              const SizedBox(height: 16),
-              const Text('Nama Lengkap'),
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Nama Lengkap',
-                ),
-              ),
-              const SizedBox(height: 16),
-              const Text('No. HP'),
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'No. HP',
-                ),
-              ),
-              const SizedBox(height: 16),
-              const Text('Email/Username'),
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Email atau Username',
-                ),
-              ),
-              const SizedBox(height: 16),
-              const Text('Kata Sandi'),
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Kata Sandi',
-                ),
-              ),
-              const SizedBox(height: 16),
-              const Text('Alamat'),
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Alamat',
-                ),
-              ),
-              const SizedBox(height: 16),
-              FractionallySizedBox(
-                widthFactor: 1,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Ubah Profil'),
-                ),
-              ),
-            ],
-          ),
+              );
+            });
+          },
         ),
       ),
     );

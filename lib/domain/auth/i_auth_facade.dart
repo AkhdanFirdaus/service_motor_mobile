@@ -8,6 +8,9 @@ abstract class IAuthFacade {
   Future<Either<AuthFailure, Unit>> registerWithEmailPassword({
     required EmailAddress emailAddress,
     required Password password,
+    required Fullname fullname,
+    required Address address,
+    required Phone phone,
   });
   Future<Either<AuthFailure, Unit>> signInWithEmailPassword({
     required EmailAddress emailAddress,
@@ -16,6 +19,9 @@ abstract class IAuthFacade {
   Future<Either<AuthFailure, Unit>> signInWithGoogle();
   Future<void> signOut();
   Future<Option<AppUser>> getSignedInUser();
-  Future<Either<AuthFailure, Unit>> storeGoogleUser();
+  Future<Either<AuthFailure, Unit>> storeGoogleUser({
+    required bool isLogin,
+    AppUser? appUser,
+  });
   Stream<Either<AppUserFailure, AppUser>> watchUserProfile();
 }

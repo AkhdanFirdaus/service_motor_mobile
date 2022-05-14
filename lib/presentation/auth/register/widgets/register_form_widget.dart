@@ -43,7 +43,7 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
               );
             },
             (_) {
-              context.router.replace(const MainLayoutRoute());
+              context.router.replace(const AppMainLayoutRoute());
               context
                   .read<AuthBloc>()
                   .add(const AuthEvent.authCheckRequested());
@@ -82,6 +82,7 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                     decoration: const InputDecoration(
                       hintText: 'Masukkan Nama Lengkap',
                     ),
+                    textInputAction: TextInputAction.next,
                     onChanged: (value) {
                       context
                           .read<RegisterFormBloc>()
@@ -95,7 +96,7 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                           .value
                           .fold(
                             (l) => l.maybeMap(
-                              shortPassword: (_) => 'Invalid Password',
+                              shortPassword: (_) => 'Invalid Fullname',
                               orElse: () => null,
                             ),
                             (r) => null,
@@ -108,6 +109,7 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                     decoration: const InputDecoration(
                       hintText: 'Masukkan No. HP',
                     ),
+                    textInputAction: TextInputAction.next,
                     onChanged: (value) {
                       context
                           .read<RegisterFormBloc>()
@@ -121,7 +123,35 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                           .value
                           .fold(
                             (l) => l.maybeMap(
-                              shortPassword: (_) => 'Invalid Password',
+                              shortPassword: (_) => 'Invalid Phone',
+                              orElse: () => null,
+                            ),
+                            (r) => null,
+                          );
+                    },
+                  ),
+                  const SizedBox(height: 16),
+                  const Text('Alamat'),
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      hintText: 'Masukkan Alamat',
+                    ),
+                    maxLines: null,
+                    textInputAction: TextInputAction.next,
+                    onChanged: (value) {
+                      context
+                          .read<RegisterFormBloc>()
+                          .add(RegisterFormEvent.addressChanged(value));
+                    },
+                    validator: (_) {
+                      return context
+                          .read<RegisterFormBloc>()
+                          .state
+                          .address
+                          .value
+                          .fold(
+                            (l) => l.maybeMap(
+                              shortPassword: (_) => 'Invalid Address',
                               orElse: () => null,
                             ),
                             (r) => null,
@@ -132,8 +162,9 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                   const Text('Email/Username'),
                   TextFormField(
                     decoration: const InputDecoration(
-                      hintText: 'Masukkan Email atau Username',
+                      hintText: 'Masukkan Email',
                     ),
+                    textInputAction: TextInputAction.next,
                     onChanged: (value) {
                       context
                           .read<RegisterFormBloc>()
@@ -147,7 +178,7 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                           .value
                           .fold(
                             (l) => l.maybeMap(
-                              shortPassword: (_) => 'Invalid Password',
+                              shortPassword: (_) => 'Invalid Email Address',
                               orElse: () => null,
                             ),
                             (r) => null,
@@ -157,9 +188,21 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                   const SizedBox(height: 16),
                   const Text('Kata Sandi'),
                   TextFormField(
-                    decoration: const InputDecoration(
+                    obscureText: isObsecure,
+                    decoration: InputDecoration(
                       hintText: 'Masukkan Kata Sandi',
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isObsecure = !isObsecure;
+                          });
+                        },
+                        icon: Icon(
+                          isObsecure ? Icons.lock : Icons.lock_open,
+                        ),
+                      ),
                     ),
+                    textInputAction: TextInputAction.next,
                     onChanged: (value) {
                       context
                           .read<RegisterFormBloc>()
@@ -213,6 +256,10 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                       ),
                     ),
                   ),
+                  if (state.isSubmitting) ...[
+                    const SizedBox(height: 8),
+                    const LinearProgressIndicator(),
+                  ],
                 ],
               ),
             ),

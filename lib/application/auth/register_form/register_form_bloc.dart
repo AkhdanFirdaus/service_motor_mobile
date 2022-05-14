@@ -61,6 +61,9 @@ class RegisterFormBloc extends Bloc<RegisterFormEvent, RegisterFormState> {
                 await _authFacade.registerWithEmailPassword(
               emailAddress: state.emailAddress,
               password: state.password,
+              address: state.address,
+              fullname: state.fullname,
+              phone: state.phone,
             );
 
             // await _authFacade.storeGoogleUser();

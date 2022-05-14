@@ -43,7 +43,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
               );
             },
             (_) {
-              context.router.replace(const MainLayoutRoute());
+              context.router.replace(const AppMainLayoutRoute());
               context
                   .read<AuthBloc>()
                   .add(const AuthEvent.authCheckRequested());

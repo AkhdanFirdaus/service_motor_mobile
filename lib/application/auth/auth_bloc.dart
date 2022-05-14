@@ -26,7 +26,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           emit(const AuthState.unauthenticated());
         },
         storeGoogleUser: (e) async {
-          await _authFacade.storeGoogleUser();
+          await _authFacade.storeGoogleUser(isLogin: true);
         },
       );
     });

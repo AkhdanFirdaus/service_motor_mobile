@@ -26,18 +26,39 @@ class FirebaseAuthFacade implements IAuthFacade {
   );
 
   @override
-  Future<Either<AuthFailure, Unit>> registerWithEmailPassword({
-    required EmailAddress emailAddress,
-    required Password password,
-  }) async {
+  Future<Either<AuthFailure, Unit>> registerWithEmailPassword(
+      {required EmailAddress emailAddress,
+      required Password password,
+      required Fullname fullname,
+      required Address address,
+      required Phone phone}) async {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
-
+    final fullnameStr = fullname.getOrCrash();
+    final addressStr = address.getOrCrash();
+    final phoneStr = phone.getOrCrash();
     try {
-      await _firebaseAuth.createUserWithEmailAndPassword(
+      await _firebaseAuth
+          .createUserWithEmailAndPassword(
         email: emailAddressStr,
         password: passwordStr,
-      );
+      )
+          .then((_) async {
+        final user = AppUser(
+          id: emailAddressStr,
+          email: emailAddressStr,
+          name: fullnameStr,
+          address: addressStr,
+          phone: phoneStr,
+          photoURL: _.user?.photoURL,
+        );
+        return storeGoogleUser(isLogin: false, appUser: user).then(
+          (failureOrSuccess) => failureOrSuccess.fold(
+            (l) => left(const AuthFailure.serverError()),
+            (r) => right(unit),
+          ),
+        );
+      });
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
@@ -84,7 +105,7 @@ class FirebaseAuthFacade implements IAuthFacade {
         accessToken: googleAuthentication.accessToken,
       );
       return _firebaseAuth.signInWithCredential(authCredential).then((_) async {
-        return storeGoogleUser().then(
+        return storeGoogleUser(isLogin: true).then(
           (failureOrSuccess) => failureOrSuccess.fold(
             (l) => left(const AuthFailure.serverError()),
             (r) => right(unit),
@@ -110,13 +131,21 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> storeGoogleUser() async {
+  Future<Either<AuthFailure, Unit>> storeGoogleUser({
+    required bool isLogin,
+    AppUser? appUser,
+  }) async {
     try {
-      final userDoc = await _firestore.userDocument();
-      final userOption = await getIt<IAuthFacade>().getSignedInUser();
-      final user =
-          userOption.getOrElse(() => throw NotAuthenticatedError()).toJson();
-      await userDoc.set(user);
+      if (isLogin) {
+        final userDoc = await _firestore.userDocument();
+        final userOption = await getIt<IAuthFacade>().getSignedInUser();
+        final user =
+            userOption.getOrElse(() => throw NotAuthenticatedError()).toJson();
+        await userDoc.set(user);
+      } else {
+        final userDoc = await _firestore.userDocument();
+        await userDoc.set(appUser!.toJson());
+      }
       return right(unit);
     } on FirebaseException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
