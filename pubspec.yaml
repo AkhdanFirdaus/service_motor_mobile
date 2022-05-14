@@ -17,9 +17,9 @@ dependencies:
   freezed_annotation: ^2.0.3
   json_annotation: ^4.5.0
   chat_bubbles: ^1.2.0
-  firebase_core: ^1.16.0
-  firebase_auth: ^3.3.17
-  cloud_firestore: ^3.1.14
+  firebase_core: ^1.17.0
+  firebase_auth: ^3.3.18
+  cloud_firestore: ^3.1.15
   google_sign_in: ^5.3.1
   get_it: ^7.2.0
   injectable: ^1.5.3
@@ -32,7 +32,7 @@ dev_dependencies:
   flutter_lints: ^2.0.1
   build_runner: ^2.1.10
   auto_route_generator: ^4.0.0
-  freezed: ^2.0.3
+  freezed: ^2.0.3+1
   json_serializable: ^6.2.0
   injectable_generator: ^1.5.3
 

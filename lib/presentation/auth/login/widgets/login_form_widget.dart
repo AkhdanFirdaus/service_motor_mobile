@@ -51,6 +51,8 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
           ),
         );
       },
+      buildWhen: (previous, current) =>
+          previous.isSubmitting != current.isSubmitting,
       builder: (context, state) {
         return Scaffold(
           body: SafeArea(
@@ -158,7 +160,6 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                     widthFactor: 1,
                     child: ElevatedButton(
                       onPressed: () {
-                        context.router.replace(const MainLayoutRoute());
                         context.read<LoginFormBloc>().add(const LoginFormEvent
                             .loginWithEmailAndPasswordPressed());
                       },
@@ -178,6 +179,10 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                       label: const Text('Masuk dengan Google'),
                     ),
                   ),
+                  if (state.isSubmitting) ...[
+                    const SizedBox(height: 8),
+                    const LinearProgressIndicator(),
+                  ],
                   const SizedBox(height: 16),
                   FractionallySizedBox(
                     widthFactor: 1,

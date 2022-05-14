@@ -51,6 +51,8 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
           ),
         );
       },
+      buildWhen: (previous, current) =>
+          previous.isSubmitting != current.isSubmitting,
       builder: (context, state) {
         return Scaffold(
           body: SafeArea(

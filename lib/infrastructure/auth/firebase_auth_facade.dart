@@ -83,9 +83,14 @@ class FirebaseAuthFacade implements IAuthFacade {
         idToken: googleAuthentication.idToken,
         accessToken: googleAuthentication.accessToken,
       );
-      return _firebaseAuth
-          .signInWithCredential(authCredential)
-          .then((value) => right(unit));
+      return _firebaseAuth.signInWithCredential(authCredential).then((_) async {
+        return storeGoogleUser().then(
+          (failureOrSuccess) => failureOrSuccess.fold(
+            (l) => left(const AuthFailure.serverError()),
+            (r) => right(unit),
+          ),
+        );
+      });
     } on FirebaseAuthException catch (_) {
       return left(const AuthFailure.serverError());
     }

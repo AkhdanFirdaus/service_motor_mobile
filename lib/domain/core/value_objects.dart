@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart';
 
 import 'package:service_motor_mobile/domain/core/errors.dart';
 import 'package:service_motor_mobile/domain/core/failures.dart';
-import 'package:service_motor_mobile/domain/core/value_validators.dart';
 import 'package:uuid/uuid.dart';
 
 @immutable

@@ -17,11 +17,36 @@ class RegisterFormBloc extends Bloc<RegisterFormEvent, RegisterFormState> {
   RegisterFormBloc(this._authFacade) : super(RegisterFormState.initial()) {
     on<RegisterFormEvent>((event, emit) async {
       await event.map(
-        emailChanged: (e) async {},
-        passwordChanged: (e) async {},
-        phoneChanged: (e) async {},
-        addressChanged: (e) async {},
-        fullnameChanged: (e) async {},
+        emailChanged: (e) async {
+          emit(state.copyWith(
+            emailAddress: EmailAddress(e.emailStr),
+            authFailureOrSuccessOption: none(),
+          ));
+        },
+        passwordChanged: (e) async {
+          emit(state.copyWith(
+            password: Password(e.passwordStr),
+            authFailureOrSuccessOption: none(),
+          ));
+        },
+        phoneChanged: (e) async {
+          emit(state.copyWith(
+            phone: Phone(e.phoneStr),
+            authFailureOrSuccessOption: none(),
+          ));
+        },
+        addressChanged: (e) async {
+          emit(state.copyWith(
+            address: Address(e.addressStr),
+            authFailureOrSuccessOption: none(),
+          ));
+        },
+        fullnameChanged: (e) async {
+          emit(state.copyWith(
+            fullname: Fullname(e.fullnameStr),
+            authFailureOrSuccessOption: none(),
+          ));
+        },
         registerWithEmailAndPasswordPressed: (e) async {
           final isEmailValid = state.emailAddress.isValid();
           final isPasswordValid = state.password.isValid();
@@ -37,6 +62,8 @@ class RegisterFormBloc extends Bloc<RegisterFormEvent, RegisterFormState> {
               emailAddress: state.emailAddress,
               password: state.password,
             );
+
+            // await _authFacade.storeGoogleUser();
 
             emit(state.copyWith(
               isSubmitting: false,
