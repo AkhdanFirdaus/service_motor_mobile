@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:service_motor_mobile/application/auth/auth_bloc.dart';
-import 'package:service_motor_mobile/application/auth/auth_form/auth_form_bloc.dart';
+import 'package:service_motor_mobile/application/auth/login_form/login_form_bloc.dart';
 import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
 class LoginFormWidget extends StatefulWidget {
@@ -18,7 +18,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthFormBloc, AuthFormState>(
+    return BlocConsumer<LoginFormBloc, LoginFormState>(
       listener: (context, state) {
         state.authFailureOrSuccessOption.fold(
           () {},
@@ -86,12 +86,12 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                     textInputAction: TextInputAction.next,
                     onChanged: (value) {
                       context
-                          .read<AuthFormBloc>()
-                          .add(AuthFormEvent.emailChanged(value));
+                          .read<LoginFormBloc>()
+                          .add(LoginFormEvent.emailChanged(value));
                     },
                     validator: (_) {
                       return context
-                          .read<AuthFormBloc>()
+                          .read<LoginFormBloc>()
                           .state
                           .emailAddress
                           .value
@@ -124,12 +124,12 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                     autocorrect: false,
                     onChanged: (value) {
                       context
-                          .read<AuthFormBloc>()
-                          .add(AuthFormEvent.passwordChanged(value));
+                          .read<LoginFormBloc>()
+                          .add(LoginFormEvent.passwordChanged(value));
                     },
                     validator: (_) {
                       return context
-                          .read<AuthFormBloc>()
+                          .read<LoginFormBloc>()
                           .state
                           .password
                           .value
@@ -159,7 +159,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                     child: ElevatedButton(
                       onPressed: () {
                         context.router.replace(const MainLayoutRoute());
-                        context.read<AuthFormBloc>().add(const AuthFormEvent
+                        context.read<LoginFormBloc>().add(const LoginFormEvent
                             .loginWithEmailAndPasswordPressed());
                       },
                       child: const Text('Masuk'),
@@ -171,8 +171,8 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                     child: OutlinedButton.icon(
                       onPressed: () {
                         context
-                            .read<AuthFormBloc>()
-                            .add(const AuthFormEvent.loginWithGooglePressed());
+                            .read<LoginFormBloc>()
+                            .add(const LoginFormEvent.loginWithGooglePressed());
                       },
                       icon: const FaIcon(FontAwesomeIcons.google),
                       label: const Text('Masuk dengan Google'),

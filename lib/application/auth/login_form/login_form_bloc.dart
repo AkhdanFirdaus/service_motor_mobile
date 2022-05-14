@@ -6,16 +6,16 @@ import 'package:service_motor_mobile/domain/auth/auth_failure.dart';
 import 'package:service_motor_mobile/domain/auth/i_auth_facade.dart';
 import 'package:service_motor_mobile/domain/core/value_objects.dart';
 
-part 'auth_form_event.dart';
-part 'auth_form_state.dart';
-part 'auth_form_bloc.freezed.dart';
+part 'login_form_event.dart';
+part 'login_form_state.dart';
+part 'login_form_bloc.freezed.dart';
 
 @injectable
-class AuthFormBloc extends Bloc<AuthFormEvent, AuthFormState> {
+class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
   final IAuthFacade _authFacade;
 
-  AuthFormBloc(this._authFacade) : super(AuthFormState.initial()) {
-    on<AuthFormEvent>((event, emit) async {
+  LoginFormBloc(this._authFacade) : super(LoginFormState.initial()) {
+    on<LoginFormEvent>((event, emit) async {
       await event.map(
         emailChanged: (e) async {
           emit(state.copyWith(
