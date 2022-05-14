@@ -1,121 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:service_motor_mobile/presentation/routes/app_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:service_motor_mobile/application/auth/login_form/login_form_bloc.dart';
+import 'package:service_motor_mobile/injection.dart';
+import 'package:service_motor_mobile/presentation/auth/login/widgets/login_form_widget.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  bool isTechnician = false;
-  bool isObsecure = true;
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Form(
-          child: ListView(
-            padding: const EdgeInsets.all(16),
-            children: [
-              const Text(
-                'Masuk',
-                textAlign: TextAlign.center,
-              ),
-              const Text(
-                'Mulai Pengalaman Reparasi Motor yang cepat dan efektif',
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 16),
-              const Center(
-                child: SizedBox(
-                  width: 200,
-                  height: 200,
-                  child: Placeholder(),
-                ),
-              ),
-              const SizedBox(height: 16),
-              const Text('Email/Username'),
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Masukkan Email atau Username',
-                ),
-              ),
-              const SizedBox(height: 16),
-              const Text('Kata Sandi'),
-              TextFormField(
-                obscureText: isObsecure,
-                decoration: InputDecoration(
-                  hintText: 'Masukkan Kata Sandi',
-                  suffixIcon: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        isObsecure = !isObsecure;
-                      });
-                    },
-                    icon: Icon(
-                      isObsecure ? Icons.lock : Icons.lock_open,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16),
-              CheckboxListTile(
-                value: isTechnician,
-                onChanged: (value) {
-                  setState(() {
-                    isTechnician = !isTechnician;
-                  });
-                },
-                controlAffinity: ListTileControlAffinity.leading,
-                title: const Text('Masuk Sebagai Teknisi'),
-              ),
-              const SizedBox(height: 16),
-              FractionallySizedBox(
-                widthFactor: 1,
-                child: ElevatedButton(
-                  onPressed: () {
-                    context.router.replace(const MainLayoutRoute());
-                  },
-                  child: const Text('Masuk'),
-                ),
-              ),
-              FractionallySizedBox(
-                widthFactor: 1,
-                child: TextButton(
-                  onPressed: () {
-                    context.router.push(const ForgotRoute());
-                  },
-                  child: const Text('Lupa Kata Sandi'),
-                ),
-              ),
-              const SizedBox(height: 16),
-              FractionallySizedBox(
-                widthFactor: 1,
-                child: TextButton(
-                  onPressed: () {
-                    context.router.replace(const RegisterRoute());
-                  },
-                  child: RichText(
-                    text: const TextSpan(
-                      text: 'Belum memiliki akun?',
-                      style: TextStyle(color: Colors.blue),
-                      children: [
-                        TextSpan(
-                          text: ' Daftar',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+    return BlocProvider(
+      create: (context) => getIt<LoginFormBloc>(),
+      child: const LoginFormWidget(),
     );
   }
 }
