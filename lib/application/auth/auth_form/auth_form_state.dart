@@ -1,8 +1,8 @@
-part of 'login_form_bloc.dart';
+part of 'auth_form_bloc.dart';
 
 @freezed
-class LoginFormState with _$LoginFormState {
-  const factory LoginFormState({
+class AuthFormState with _$AuthFormState {
+  const factory AuthFormState({
     required EmailAddress emailAddress,
     required Password password,
     required bool showErrorMessages,
@@ -10,7 +10,7 @@ class LoginFormState with _$LoginFormState {
     required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
   }) = _LoginFormState;
 
-  factory LoginFormState.initial() => LoginFormState(
+  factory AuthFormState.initial() => AuthFormState(
         emailAddress: EmailAddress(''),
         password: Password(''),
         showErrorMessages: false,

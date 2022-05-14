@@ -6,16 +6,16 @@ import 'package:service_motor_mobile/domain/auth/auth_failure.dart';
 import 'package:service_motor_mobile/domain/auth/i_auth_facade.dart';
 import 'package:service_motor_mobile/domain/core/value_objects.dart';
 
-part 'login_form_event.dart';
-part 'login_form_state.dart';
-part 'login_form_bloc.freezed.dart';
+part 'auth_form_event.dart';
+part 'auth_form_state.dart';
+part 'auth_form_bloc.freezed.dart';
 
 @injectable
-class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
+class AuthFormBloc extends Bloc<AuthFormEvent, AuthFormState> {
   final IAuthFacade _authFacade;
 
-  LoginFormBloc(this._authFacade) : super(LoginFormState.initial()) {
-    on<LoginFormEvent>((event, emit) async {
+  AuthFormBloc(this._authFacade) : super(AuthFormState.initial()) {
+    on<AuthFormEvent>((event, emit) async {
       await event.map(
         emailChanged: (e) async {
           emit(state.copyWith(
@@ -29,7 +29,7 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
             authFailureOrSuccessOption: none(),
           ));
         },
-        signInWithEmailAndPasswordPressed: (e) async {
+        loginWithEmailAndPasswordPressed: (e) async {
           final isEmailValid = state.emailAddress.isValid();
           final isPasswordValid = state.password.isValid();
 
@@ -80,7 +80,7 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
             authFailureOrSuccessOption: none(),
           ));
         },
-        signInWithGooglePressed: (e) async {
+        loginWithGooglePressed: (e) async {
           emit(state.copyWith(
             isSubmitting: true,
             authFailureOrSuccessOption: none(),
