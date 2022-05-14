@@ -11,6 +11,8 @@ class AppUser with _$AppUser {
     String? name,
     String? photoURL,
     required String email,
+    String? address,
+    String? phone,
   }) = _AppUser;
 
   const AppUser._();
@@ -21,6 +23,8 @@ class AppUser with _$AppUser {
       name: name,
       photoURL: photoURL,
       email: email,
+      address: address,
+      phone: phone,
     );
   }
 
