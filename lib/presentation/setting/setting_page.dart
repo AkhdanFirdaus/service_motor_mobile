@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:service_motor_mobile/application/auth/auth_bloc.dart';
 import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
 class SettingPage extends StatelessWidget {
@@ -41,7 +43,7 @@ class SettingPage extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
-                context.router.replace(const LoginRoute());
+                context.read<AuthBloc>().add(const AuthEvent.signedOut());
               },
               leading: const Icon(Icons.exit_to_app, color: Colors.red),
               title: const Text(

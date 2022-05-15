@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:service_motor_mobile/presentation/home/widgets/hello_block_widget.dart';
 import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,18 +13,7 @@ class HomePage extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.symmetric(vertical: 16),
           children: [
-            ListTile(
-              contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-              leading: const CircleAvatar(),
-              title: const Text("Hi, Ilham"),
-              subtitle: const Text("Selamat Pagi!"),
-              trailing: IconButton(
-                onPressed: () {
-                  context.router.push(const NotificationRoute());
-                },
-                icon: const Icon(Icons.notifications),
-              ),
-            ),
+            const HelloBlockWidget(),
             const SizedBox(height: 16),
             Container(
               width: MediaQuery.of(context).size.width,

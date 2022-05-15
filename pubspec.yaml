@@ -10,13 +10,22 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.4
-  auto_route: ^4.0.0
+  auto_route: ^4.0.1
   dartz: ^0.10.1
   dio: ^4.0.6
   flutter_bloc: ^8.0.1
   freezed_annotation: ^2.0.3
   json_annotation: ^4.5.0
   chat_bubbles: ^1.2.0
+  firebase_core: ^1.17.0
+  firebase_auth: ^3.3.18
+  cloud_firestore: ^3.1.15
+  google_sign_in: ^5.3.1
+  get_it: ^7.2.0
+  injectable: ^1.5.3
+  uuid: ^3.0.6
+  font_awesome_flutter: ^10.1.0
+  shimmer: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -24,8 +33,9 @@ dev_dependencies:
   flutter_lints: ^2.0.1
   build_runner: ^2.1.10
   auto_route_generator: ^4.0.0
-  freezed: ^2.0.3
+  freezed: ^2.0.3+1
   json_serializable: ^6.2.0
+  injectable_generator: ^1.5.3
 
 flutter:
   uses-material-design: true
