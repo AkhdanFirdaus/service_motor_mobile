@@ -22,8 +22,10 @@ class _ProfileFormWidgetState extends State<ProfileFormWidget> {
   late TextEditingController addressController;
   late TextEditingController phoneController;
   late TextEditingController passwordController;
+  late TextEditingController passwordConfirmController;
 
   bool isObsecure = true;
+  bool isObsecure2 = true;
 
   @override
   void initState() {
@@ -32,6 +34,7 @@ class _ProfileFormWidgetState extends State<ProfileFormWidget> {
     addressController = TextEditingController(text: widget.appUser.address);
     phoneController = TextEditingController(text: widget.appUser.phone);
     passwordController = TextEditingController();
+    passwordConfirmController = TextEditingController();
     super.initState();
   }
 
@@ -42,6 +45,7 @@ class _ProfileFormWidgetState extends State<ProfileFormWidget> {
     addressController.dispose();
     phoneController.dispose();
     passwordController.dispose();
+    passwordConfirmController.dispose();
     super.dispose();
   }
 
@@ -90,6 +94,7 @@ class _ProfileFormWidgetState extends State<ProfileFormWidget> {
           previous.isSubmitting != current.isSubmitting,
       builder: (context, state) {
         return Form(
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           child: ListView(
             padding: const EdgeInsets.all(16),
             children: [
@@ -196,6 +201,7 @@ class _ProfileFormWidgetState extends State<ProfileFormWidget> {
               const Text('Kata Sandi Baru'),
               TextFormField(
                 controller: passwordController,
+                obscureText: isObsecure,
                 decoration: InputDecoration(
                   hintText: 'Kata Sandi Baru',
                   suffixIcon: IconButton(
@@ -234,17 +240,18 @@ class _ProfileFormWidgetState extends State<ProfileFormWidget> {
               const SizedBox(height: 16),
               const Text('Konfirmasi Kata Sandi'),
               TextFormField(
-                controller: passwordController,
+                controller: passwordConfirmController,
+                obscureText: isObsecure2,
                 decoration: InputDecoration(
                   hintText: 'Konfirmasi Kata Sandi Baru',
                   suffixIcon: IconButton(
                     onPressed: () {
                       setState(() {
-                        isObsecure = !isObsecure;
+                        isObsecure2 = !isObsecure2;
                       });
                     },
                     icon: Icon(
-                      isObsecure ? Icons.lock : Icons.lock_open,
+                      isObsecure2 ? Icons.lock : Icons.lock_open,
                     ),
                   ),
                 ),

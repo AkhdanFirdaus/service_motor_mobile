@@ -9,6 +9,7 @@ import 'package:dartz/dartz.dart';
 import 'package:service_motor_mobile/domain/auth/auth_value_objects.dart';
 import 'package:service_motor_mobile/domain/auth/i_auth_facade.dart';
 import 'package:service_motor_mobile/domain/core/errors.dart';
+import 'package:service_motor_mobile/domain/core/value_objects.dart';
 import 'package:service_motor_mobile/infrastructure/auth/firebase_user_mapper.dart';
 import 'package:service_motor_mobile/infrastructure/core/firestore_helper.dart';
 import 'package:service_motor_mobile/injection.dart';
@@ -139,12 +140,17 @@ class FirebaseAuthFacade implements IAuthFacade {
       if (isLogin) {
         final userDoc = await _firestore.userDocument();
         final userOption = await getIt<IAuthFacade>().getSignedInUser();
-        final user =
-            userOption.getOrElse(() => throw NotAuthenticatedError()).toJson();
+        final user = userOption
+            .getOrElse(() => throw NotAuthenticatedError())
+            .copyWith(
+              id: UniqueId().getOrCrash(),
+            )
+            .toJson();
         await userDoc.set(user);
       } else {
         final userDoc = await _firestore.userDocument();
-        await userDoc.set(appUser!.toJson());
+        await userDoc
+            .set(appUser!.copyWith(id: UniqueId().getOrCrash()).toJson());
       }
       return right(unit);
     } on FirebaseException catch (e) {
