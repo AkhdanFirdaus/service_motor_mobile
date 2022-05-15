@@ -17,7 +17,9 @@ class TicketActivePage extends StatelessWidget {
               title: const Text("History Page"),
               subtitle: const Text("Menampilkan histori setiap kali service"),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.router.push(const NotificationRoute());
+                },
                 icon: const Icon(Icons.notifications),
               ),
             ),
