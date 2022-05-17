@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:service_motor_mobile/presentation/core/app_theme.dart';
 import 'package:service_motor_mobile/presentation/onboard/widgets/onboard_item_widget.dart';
 import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
@@ -11,6 +12,15 @@ class OnboardPage extends StatefulWidget {
 
 class _OnboardPageState extends State<OnboardPage> {
   late PageController pageController;
+
+  final Map<String, String> onboardMenu = {
+    'Anti Ribet':
+        'Mulai hari ini, kamu bisa hemat waktu untuk lama-lama mengantri hanya lewat satu klik!',
+    'Real-Time':
+        'Sering bingung berapa lama lagi proses reparasi selesai? Tenang, notifikasi real-time jadi solusimu!',
+    'Cepat & Efektif':
+        'Sudah siap untuk mendapatkan pengalaman reparasi yang cepat dan efektif? Yuk klik tombol di bawah!',
+  };
 
   int currentIndex = 0;
 
@@ -29,6 +39,7 @@ class _OnboardPageState extends State<OnboardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.background,
       body: SafeArea(
         child: Column(
           children: [
@@ -40,60 +51,59 @@ class _OnboardPageState extends State<OnboardPage> {
                     currentIndex = index;
                   });
                 },
-                itemCount: 3,
+                itemCount: onboardMenu.length,
                 itemBuilder: (context, index) {
+                  final menu = onboardMenu.entries.elementAt(index);
                   return OnboardItemWidget(
-                    title: 'Title $index',
-                    description: 'Description ke $index',
+                    title: menu.key,
+                    description: menu.value,
                   );
                 },
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                pageController.nextPage(
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeIn,
-                );
-                setState(() {
-                  currentIndex++;
-                });
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    if (currentIndex == 2) ...[
-                      for (int i = 0; i < 2; i++)
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: CircleAvatar(
-                            radius: 12,
-                            backgroundColor: Colors.grey,
+            Container(
+              color: AppColor.white,
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 150),
+                // transitionBuilder: (child, animation) => ScaleTransition(
+                //   scale: animation,
+                //   child: child,
+                // ),
+                child: currentIndex == 2
+                    ? Padding(
+                        key: const ValueKey('getstarted'),
+                        padding: const EdgeInsets.all(30),
+                        child: FractionallySizedBox(
+                          widthFactor: 1,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              context.router.push(const LoginRoute());
+                            },
+                            child: const Text('Mulai'),
                           ),
-                        ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            context.router.push(const LoginRoute());
-                          },
-                          child: const Text('Mulai'),
                         ),
                       )
-                    ] else
-                      for (int i = 0; i < 3; i++)
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: CircleAvatar(
-                            radius: 12,
-                            backgroundColor:
-                                i == currentIndex ? Colors.blue : Colors.grey,
-                          ),
+                    : Padding(
+                        key: const ValueKey('indicator'),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 30,
+                          vertical: 40,
                         ),
-                  ],
-                ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            for (int i = 0; i < 3; i++)
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: CircleAvatar(
+                                  radius: 8,
+                                  backgroundColor:
+                                      i == currentIndex ? null : Colors.grey,
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
               ),
             ),
           ],

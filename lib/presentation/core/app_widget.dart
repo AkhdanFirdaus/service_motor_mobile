@@ -26,7 +26,7 @@ class AppWidget extends StatelessWidget {
         routeInformationParser: _router.defaultRouteParser(),
         routerDelegate: _router.delegate(),
         title: 'Servis Motor',
-        theme: AppTheme.theme,
+        theme: AppTheme.theme(context),
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:service_motor_mobile/application/auth/auth_bloc.dart';
 import 'package:service_motor_mobile/application/auth/register_form/register_form_bloc.dart';
+import 'package:service_motor_mobile/presentation/core/app_theme.dart';
 import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
 class RegisterFormWidget extends StatefulWidget {
@@ -58,17 +59,20 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
           body: SafeArea(
             child: Form(
               child: ListView(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(30),
                 children: [
                   const Text(
                     'Daftar',
+                    style: AppFont.headline3,
                     textAlign: TextAlign.center,
                   ),
+                  const SizedBox(height: 8),
                   const Text(
                     'Buat akun barumu disini',
+                    style: AppFont.subhead3,
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 32),
                   const Center(
                     child: SizedBox(
                       width: 200,
@@ -76,8 +80,12 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                       child: Placeholder(),
                     ),
                   ),
-                  const SizedBox(height: 16),
-                  const Text('Nama Lengkap'),
+                  const SizedBox(height: 32),
+                  const Text(
+                    'Nama Lengkap',
+                    style: AppFont.formLabel,
+                  ),
+                  const SizedBox(height: 8),
                   TextFormField(
                     decoration: const InputDecoration(
                       hintText: 'Masukkan Nama Lengkap',
@@ -104,7 +112,11 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                     },
                   ),
                   const SizedBox(height: 16),
-                  const Text('No. HP'),
+                  const Text(
+                    'No. HP',
+                    style: AppFont.formLabel,
+                  ),
+                  const SizedBox(height: 8),
                   TextFormField(
                     decoration: const InputDecoration(
                       hintText: 'Masukkan No. HP',
@@ -131,7 +143,11 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                     },
                   ),
                   const SizedBox(height: 16),
-                  const Text('Alamat'),
+                  const Text(
+                    'Alamat',
+                    style: AppFont.formLabel,
+                  ),
+                  const SizedBox(height: 8),
                   TextFormField(
                     decoration: const InputDecoration(
                       hintText: 'Masukkan Alamat',
@@ -159,7 +175,11 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                     },
                   ),
                   const SizedBox(height: 16),
-                  const Text('Email/Username'),
+                  const Text(
+                    'Email',
+                    style: AppFont.formLabel,
+                  ),
+                  const SizedBox(height: 8),
                   TextFormField(
                     decoration: const InputDecoration(
                       hintText: 'Masukkan Email',
@@ -186,7 +206,11 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                     },
                   ),
                   const SizedBox(height: 16),
-                  const Text('Kata Sandi'),
+                  const Text(
+                    'Kata Sandi',
+                    style: AppFont.formLabel,
+                  ),
+                  const SizedBox(height: 8),
                   TextFormField(
                     obscureText: isObsecure,
                     decoration: InputDecoration(
@@ -223,7 +247,7 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                           );
                     },
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 32),
                   FractionallySizedBox(
                     widthFactor: 1,
                     child: ElevatedButton(
@@ -245,11 +269,14 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                       child: RichText(
                         text: const TextSpan(
                           text: 'Sudah memiliki akun?',
-                          style: TextStyle(color: Colors.blue),
+                          style: TextStyle(color: AppColor.greyOrange),
                           children: [
                             TextSpan(
                               text: ' Masuk',
-                              style: TextStyle(color: Colors.black),
+                              style: TextStyle(
+                                color: AppColor.orange,
+                                decoration: TextDecoration.underline,
+                              ),
                             ),
                           ],
                         ),

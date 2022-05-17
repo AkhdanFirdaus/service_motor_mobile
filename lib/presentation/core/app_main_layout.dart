@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:service_motor_mobile/application/auth/auth_bloc.dart';
 import 'package:service_motor_mobile/application/auth/user_profile/user_profile_bloc.dart';
+import 'package:service_motor_mobile/application/main_layout_menu/main_layout_menu_cubit.dart';
 import 'package:service_motor_mobile/application/notification/notification_bloc.dart';
 import 'package:service_motor_mobile/injection.dart';
 
 import 'package:service_motor_mobile/presentation/auth/profile/profile_page.dart';
+import 'package:service_motor_mobile/presentation/core/app_theme.dart';
 import 'package:service_motor_mobile/presentation/history/history_page.dart';
 import 'package:service_motor_mobile/presentation/home/home_page.dart';
 import 'package:service_motor_mobile/presentation/routes/app_router.dart';
@@ -51,6 +53,9 @@ class _AppMainLayoutPageState extends State<AppMainLayoutPage> {
           create: (context) => getIt<UserProfileBloc>()
             ..add(const UserProfileEvent.watchProfileStarted()),
         ),
+        BlocProvider(
+          create: (context) => getIt<MainLayoutMenuCubit>(),
+        ),
       ],
       child: MultiBlocListener(
         listeners: [
@@ -86,24 +91,46 @@ class _AppMainLayoutPageState extends State<AppMainLayoutPage> {
             },
           ),
         ],
-        child: Scaffold(
-          body: _children[currentIndex].page,
-          bottomNavigationBar: BottomNavigationBar(
-            onTap: (index) {
-              setState(() {
-                currentIndex = index;
-              });
-            },
-            type: BottomNavigationBarType.fixed,
-            currentIndex: currentIndex,
-            items: _children.map((e) {
-              // final isSelected = _children.indexOf(e) == currentIndex;
-              return BottomNavigationBarItem(
-                icon: Icon(e.icon),
-                label: e.label,
-              );
-            }).toList(),
-          ),
+        child: BlocBuilder<MainLayoutMenuCubit, MainLayoutMenuState>(
+          buildWhen: (p, c) => p.currentIndex != c.currentIndex,
+          builder: (context, state) {
+            return Scaffold(
+              body: _children[state.currentIndex].page,
+              bottomNavigationBar: Material(
+                clipBehavior: Clip.hardEdge,
+                color: AppColor.black,
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(25),
+                  topRight: Radius.circular(25),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    for (int i = 0; i < _children.length; i++)
+                      InkWell(
+                        onTap: () {
+                          context.read<MainLayoutMenuCubit>().changePage(i);
+                          setState(() {
+                            currentIndex = i;
+                          });
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(30.0),
+                          child: Icon(
+                            _children[i].icon,
+                            color: context
+                                    .read<MainLayoutMenuCubit>()
+                                    .isSelected(i)
+                                ? AppColor.orange
+                                : AppColor.white,
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+            );
+          },
         ),
       ),
     );

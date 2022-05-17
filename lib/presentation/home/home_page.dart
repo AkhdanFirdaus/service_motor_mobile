@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:service_motor_mobile/application/main_layout_menu/main_layout_menu_cubit.dart';
+import 'package:service_motor_mobile/presentation/core/app_theme.dart';
+import 'package:service_motor_mobile/presentation/home/widgets/action_block_widget.dart';
 import 'package:service_motor_mobile/presentation/home/widgets/hello_block_widget.dart';
 import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
@@ -11,141 +15,77 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.symmetric(vertical: 16),
+          padding: const EdgeInsets.symmetric(vertical: 30),
           children: [
             const HelloBlockWidget(),
-            const SizedBox(height: 16),
+            const SizedBox(height: 30),
             Container(
               width: MediaQuery.of(context).size.width,
-              height: 200,
-              color: Colors.grey,
+              color: AppColor.black,
+              padding: const EdgeInsets.all(30),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Terakhir Reparasi"),
+                  Text(
+                    "Terakhir Reparasi",
+                    style: AppFont.subhead2.copyWith(
+                      color: AppColor.white,
+                    ),
+                  ),
                   const SizedBox(height: 8),
-                  const Text("20 Maret 2022"),
-                  const SizedBox(height: 8),
+                  Text(
+                    "20 Maret 2022",
+                    style: AppFont.headline2.copyWith(
+                      color: AppColor.white,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<MainLayoutMenuCubit>().changePage(2);
+                    },
                     child: const Text('Lihat Histori'),
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 16),
-            GridView.count(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              crossAxisCount: 4,
-              children: [
-                InkWell(
-                  onTap: () {
-                    context.router.push(const ReparationRoute());
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(12),
-                        color: Colors.grey,
-                        child: const Icon(
-                          Icons.auto_fix_high,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text('Reparasi'),
-                    ],
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    context.router.push(const TicketActiveRoute());
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(12),
-                        color: Colors.grey,
-                        child: const Icon(
-                          Icons.airplane_ticket,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text('Tiket Aktif'),
-                    ],
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    context.router.push(const LocationRoute());
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(12),
-                        color: Colors.grey,
-                        child: const Icon(
-                          Icons.map_outlined,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text('Cek Lokasi'),
-                    ],
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    context.router.push(const SettingRoute());
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(12),
-                        color: Colors.grey,
-                        child: const Icon(
-                          Icons.settings,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text('Pengaturan'),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 30),
+            const ActionBlocWidget(),
+            const SizedBox(height: 30),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text('Histori Terbaru'),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<MainLayoutMenuCubit>().changePage(2);
+                    },
                     child: const Text('Lihat Semua'),
                   ),
                 ],
               ),
             ),
             for (int i = 0; i < 3; i++)
-              Container(
-                margin: const EdgeInsets.all(16),
-                child: Material(
-                  elevation: 4,
-                  borderRadius: BorderRadius.circular(8),
-                  child: ListTile(
-                    onTap: () {},
-                    title: Text('AHASS $i'),
-                    subtitle: Text('27 Maret 202$i'),
-                    trailing: Text(
-                      'Rp. ${i}45.000',
-                      style: const TextStyle(color: Colors.red),
-                    ),
+              ListTile(
+                onTap: () {},
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 30,
+                  vertical: 8,
+                ),
+                leading: const CircleAvatar(
+                  backgroundColor: AppColor.orange,
+                  child: Text(
+                    'A',
+                    style: TextStyle(color: AppColor.white),
                   ),
+                ),
+                title: Text('AHASS $i'),
+                subtitle: Text('27 Maret 202$i'),
+                trailing: Text(
+                  'Rp. ${i}45.000',
+                  style: const TextStyle(color: Colors.red),
                 ),
               ),
           ],
