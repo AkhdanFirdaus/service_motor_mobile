@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "910882897101-jju5jko2hv95togfebbcrnr97afose85.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ppl4b.service_motor_mobile.service_motor_mobile",
+            "certificate_hash": "8a6bff351be68acec51f27ebccb3de14a78101c4"
+          }
+        },
+        {
           "client_id": "910882897101-v89v37hu7glmiflp61ng87ngdks4q1l5.apps.googleusercontent.com",
           "client_type": 3
         }
