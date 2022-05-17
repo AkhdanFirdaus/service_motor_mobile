@@ -285,7 +285,7 @@ class ReparationPage extends StatelessWidget {
               widthFactor: 1,
               child: ElevatedButton(
                 onPressed: () {
-                  context.router.replace(const TicketSuccessRoute());
+                  context.router.push(const TicketSuccessRoute());
                 },
                 child: const Text('Pesan Tiket'),
               ),

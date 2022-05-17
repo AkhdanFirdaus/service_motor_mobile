@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:service_motor_mobile/presentation/core/app_theme.dart';
 import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
 class TicketDetailPage extends StatelessWidget {
@@ -10,21 +11,28 @@ class TicketDetailPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(30),
           children: [
-            const Text(
-              '#NP123JD',
-              textAlign: TextAlign.center,
-            ),
-            const Text(
-              'AHASS Soekarno Hatta',
-              textAlign: TextAlign.center,
-            ),
-            const Text(
-              '10 Mei 2022',
-              textAlign: TextAlign.center,
+            const Chip(
+              backgroundColor: AppColor.orange,
+              label: Text(
+                '#NP123JD',
+                style: TextStyle(color: AppColor.white),
+                textAlign: TextAlign.center,
+              ),
             ),
             const SizedBox(height: 16),
+            const Text(
+              'AHASS Soekarno Hatta',
+              style: AppFont.headline1,
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              '10 Mei 2022',
+              style: AppFont.subhead2.copyWith(color: AppColor.greyOrange),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 30),
             const Center(
               child: SizedBox(
                 width: 200,
@@ -32,21 +40,26 @@ class TicketDetailPage extends StatelessWidget {
                 child: Placeholder(),
               ),
             ),
-            const SizedBox(height: 16),
-            OutlinedButton(
-              onPressed: () {},
-              child: const Text('Unduh Tiket'),
+            const SizedBox(height: 30),
+            FractionallySizedBox(
+              widthFactor: 0.5,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: const Text('Unduh Tiket'),
+              ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 30),
             const Text(
               'Catatan',
+              style: AppFont.subhead2,
               textAlign: TextAlign.left,
             ),
+            const SizedBox(height: 8),
             const Text(
               'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.',
               textAlign: TextAlign.justify,
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 30),
             FractionallySizedBox(
               widthFactor: 1,
               child: ElevatedButton(

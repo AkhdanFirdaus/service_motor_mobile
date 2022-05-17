@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:service_motor_mobile/application/auth/auth_bloc.dart';
+import 'package:service_motor_mobile/presentation/core/app_theme.dart';
 import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
 class SettingPage extends StatelessWidget {
@@ -12,24 +13,35 @@ class SettingPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(30),
           children: [
             ListTile(
+              contentPadding: EdgeInsets.zero,
               leading: BackButton(
                 onPressed: () {
                   context.router.pop();
                 },
               ),
-              title: const Text("Pengaturan"),
-              subtitle: const Text("Ubah pengaturan aplikasimu"),
-              trailing: IconButton(
-                onPressed: () {
-                  context.router.push(const NotificationRoute());
-                },
-                icon: const Icon(Icons.notifications),
+              title: const Text(
+                "Pengaturan",
+                style: AppFont.headline2,
+              ),
+              subtitle: Text(
+                "Ubah pengaturan aplikasimu",
+                style: AppFont.subhead3.copyWith(color: AppColor.greyOrange),
+              ),
+              trailing: CircleAvatar(
+                backgroundColor: AppColor.orange,
+                child: IconButton(
+                  color: AppColor.white,
+                  onPressed: () {
+                    context.router.push(const NotificationRoute());
+                  },
+                  icon: const Icon(Icons.notifications),
+                ),
               ),
             ),
-            const Divider(height: 16),
+            const Divider(),
             const SizedBox(height: 16),
             ListTile(
               onTap: () {

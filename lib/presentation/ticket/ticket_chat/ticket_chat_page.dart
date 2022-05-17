@@ -1,5 +1,6 @@
 import 'package:chat_bubbles/bubbles/bubble_special_one.dart';
 import 'package:flutter/material.dart';
+import 'package:service_motor_mobile/presentation/core/app_theme.dart';
 import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
 class TicketChatPage extends StatefulWidget {
@@ -16,22 +17,57 @@ class _TicketChatPageState extends State<TicketChatPage> {
   Widget build(BuildContext context) {
     AutoRouter.of(context);
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(0),
+        child: Container(color: AppColor.black),
+      ),
       body: SafeArea(
-        child: ListView.builder(
-          padding: const EdgeInsets.all(16),
-          itemCount: 8,
-          itemBuilder: (context, index) {
-            return BubbleSpecialOne(
-              text: 'Hi, How are you? ',
-              isSender: index % 2 == 0,
-            );
-          },
+        child: Column(
+          children: [
+            Material(
+              clipBehavior: Clip.hardEdge,
+              color: AppColor.black,
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(25),
+                bottomRight: Radius.circular(25),
+              ),
+              child: ListTile(
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 30,
+                  vertical: 16,
+                ),
+                leading: const CircleAvatar(
+                  backgroundColor: AppColor.white,
+                ),
+                title: Text(
+                  'Admin',
+                  style: AppFont.headline2.copyWith(color: AppColor.white),
+                ),
+                subtitle: Text(
+                  'Online',
+                  style: AppFont.subhead3.copyWith(color: AppColor.white),
+                ),
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.all(12),
+                itemCount: 8,
+                itemBuilder: (context, index) {
+                  return BubbleSpecialOne(
+                    text: 'Hi, How are you? ',
+                    isSender: index % 2 == 0,
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.symmetric(
           vertical: 16,
-          horizontal: 24,
+          horizontal: 30,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,

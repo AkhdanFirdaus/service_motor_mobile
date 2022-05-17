@@ -11,11 +11,18 @@ class HistoryPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(30),
           children: [
             ListTile(
-              title: const Text("History Page"),
-              subtitle: const Text("Menampilkan histori setiap kali service"),
+              contentPadding: EdgeInsets.zero,
+              title: const Text(
+                "History Page",
+                style: AppFont.headline3,
+              ),
+              subtitle: Text(
+                "Menampilkan histori setiap kali service",
+                style: AppFont.subhead3.copyWith(color: AppColor.greyOrange),
+              ),
               trailing: CircleAvatar(
                 backgroundColor: AppColor.orange,
                 child: IconButton(
@@ -27,27 +34,29 @@ class HistoryPage extends StatelessWidget {
                 ),
               ),
             ),
-            const Divider(height: 16),
+            const Divider(),
             const SizedBox(height: 16),
             for (int i = 0; i < 3; i++) ...[
+              const SizedBox(height: 16),
               Text('Bulan ke $i'),
               for (int i = 0; i < 3; i++)
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 16),
-                  child: Material(
-                    elevation: 4,
-                    borderRadius: BorderRadius.circular(8),
-                    child: ListTile(
-                      onTap: () {
-                        context.router.push(const HistoryDetailRoute());
-                      },
-                      title: Text('AHASS $i'),
-                      subtitle: Text('27 Maret 202$i'),
-                      trailing: Text(
-                        'Rp. ${i}45.000',
-                        style: const TextStyle(color: Colors.red),
-                      ),
+                ListTile(
+                  contentPadding: const EdgeInsets.symmetric(vertical: 16),
+                  onTap: () {
+                    context.router.push(const HistoryDetailRoute());
+                  },
+                  leading: const CircleAvatar(
+                    backgroundColor: AppColor.orange,
+                    child: Text(
+                      'A',
+                      style: TextStyle(color: AppColor.white),
                     ),
+                  ),
+                  title: Text('AHASS $i'),
+                  subtitle: Text('27 Maret 202$i'),
+                  trailing: Text(
+                    'Rp. ${i}45.000',
+                    style: const TextStyle(color: Colors.red),
                   ),
                 ),
             ],
