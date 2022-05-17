@@ -3,6 +3,39 @@ import 'package:service_motor_mobile/presentation/core/app_theme.dart';
 import 'package:service_motor_mobile/presentation/onboard/widgets/onboard_item_widget.dart';
 import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
+class MenuClass {
+  final String title;
+  final String description;
+  final String image;
+
+  MenuClass({
+    required this.title,
+    required this.description,
+    required this.image,
+  });
+}
+
+final List<MenuClass> onboardMenu = [
+  MenuClass(
+    title: 'Anti Ribet',
+    description:
+        'Mulai hari ini, kamu bisa hemat waktu untuk lama-lama mengantri hanya lewat satu klik!',
+    image: 'assets/illustrations/board-1.png',
+  ),
+  MenuClass(
+    title: 'Real-Time',
+    description:
+        'Sering bingung berapa lama lagi proses reparasi selesai? Tenang, notifikasi real-time jadi solusimu!',
+    image: 'assets/illustrations/board-2.png',
+  ),
+  MenuClass(
+    title: 'Cepat & Efektif',
+    description:
+        'Sudah siap untuk mendapatkan pengalaman reparasi yang cepat dan efektif? Yuk klik tombol di bawah!',
+    image: 'assets/illustrations/board-3.png',
+  ),
+];
+
 class OnboardPage extends StatefulWidget {
   const OnboardPage({Key? key}) : super(key: key);
 
@@ -12,15 +45,6 @@ class OnboardPage extends StatefulWidget {
 
 class _OnboardPageState extends State<OnboardPage> {
   late PageController pageController;
-
-  final Map<String, String> onboardMenu = {
-    'Anti Ribet':
-        'Mulai hari ini, kamu bisa hemat waktu untuk lama-lama mengantri hanya lewat satu klik!',
-    'Real-Time':
-        'Sering bingung berapa lama lagi proses reparasi selesai? Tenang, notifikasi real-time jadi solusimu!',
-    'Cepat & Efektif':
-        'Sudah siap untuk mendapatkan pengalaman reparasi yang cepat dan efektif? Yuk klik tombol di bawah!',
-  };
 
   int currentIndex = 0;
 
@@ -43,9 +67,21 @@ class _OnboardPageState extends State<OnboardPage> {
       body: SafeArea(
         child: Column(
           children: [
+            ButtonBar(
+              children: [
+                if (currentIndex != 2)
+                  TextButton(
+                    onPressed: () {
+                      context.router.replace(const LoginRoute());
+                    },
+                    child: const Text('Skip'),
+                  ),
+              ],
+            ),
             Expanded(
               child: PageView.builder(
                 controller: pageController,
+                physics: const BouncingScrollPhysics(),
                 onPageChanged: (index) {
                   setState(() {
                     currentIndex = index;
@@ -53,10 +89,11 @@ class _OnboardPageState extends State<OnboardPage> {
                 },
                 itemCount: onboardMenu.length,
                 itemBuilder: (context, index) {
-                  final menu = onboardMenu.entries.elementAt(index);
+                  final menu = onboardMenu[index];
                   return OnboardItemWidget(
-                    title: menu.key,
-                    description: menu.value,
+                    title: menu.title,
+                    description: menu.description,
+                    image: menu.image,
                   );
                 },
               ),
@@ -77,7 +114,7 @@ class _OnboardPageState extends State<OnboardPage> {
                           widthFactor: 1,
                           child: ElevatedButton(
                             onPressed: () {
-                              context.router.push(const LoginRoute());
+                              context.router.replace(const LoginRoute());
                             },
                             child: const Text('Mulai'),
                           ),

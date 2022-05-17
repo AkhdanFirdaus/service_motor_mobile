@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:service_motor_mobile/application/auth/auth_bloc.dart';
 import 'package:service_motor_mobile/application/auth/user_profile/user_profile_bloc.dart';
 import 'package:service_motor_mobile/application/main_layout_menu/main_layout_menu_cubit.dart';
@@ -26,7 +27,7 @@ final _children = [
   ),
   MenuClass(
     label: 'Tiket Aktif',
-    icon: Icons.airplane_ticket,
+    icon: FontAwesomeIcons.ticket,
     page: const TicketActivePage(),
   ),
   MenuClass(
@@ -78,7 +79,7 @@ class AppMainLayoutPage extends StatelessWidget {
             listener: (context, state) {
               state.maybeMap(
                 unauthenticated: (_) {
-                  context.router.replace(const LoginRoute());
+                  context.router.replaceAll(const [LoginRoute()]);
                 },
                 orElse: () {},
               );
@@ -107,7 +108,7 @@ class AppMainLayoutPage extends StatelessWidget {
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(30.0),
-                          child: Icon(
+                          child: FaIcon(
                             _children[i].icon,
                             color: context
                                     .read<MainLayoutMenuCubit>()

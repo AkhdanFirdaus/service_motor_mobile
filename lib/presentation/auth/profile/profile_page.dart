@@ -16,35 +16,44 @@ class ProfilePage extends StatelessWidget {
         ..add(const UserProfileEvent.watchProfileStarted()),
       child: Scaffold(
         body: SafeArea(
-          child: BlocBuilder<UserProfileBloc, UserProfileState>(
-            builder: (context, state) {
-              return state.map(initial: (_) {
-                return Container();
-              }, loadingProgress: (_) {
-                return Shimmer.fromColors(
-                  baseColor: Colors.grey.shade300,
-                  highlightColor: Colors.white60,
-                  child: const CircleAvatar(),
-                );
-              }, loadSuccess: (e) {
-                return BlocProvider(
-                  create: (context) => getIt<UserProfileFormBloc>()
-                    ..add(UserProfileFormEvent.started(e.user)),
-                  child: ProfileFormWidget(appUser: e.user),
-                );
-              }, loadFailure: (e) {
-                return ListTile(
-                  tileColor: Colors.red,
-                  textColor: Colors.white,
-                  title: Text(
-                    e.appUserFailure.map(
-                      unexpected: (_) => 'Unexpected Error',
-                      insufficientPermissions: (_) => 'Permission Error',
-                    ),
-                  ),
-                );
-              });
-            },
+          child: Stack(
+            children: [
+              Positioned(
+                bottom: -100,
+                right: -60,
+                child: Image.asset('assets/other/gear.png'),
+              ),
+              BlocBuilder<UserProfileBloc, UserProfileState>(
+                builder: (context, state) {
+                  return state.map(initial: (_) {
+                    return Container();
+                  }, loadingProgress: (_) {
+                    return Shimmer.fromColors(
+                      baseColor: Colors.grey.shade300,
+                      highlightColor: Colors.white60,
+                      child: const CircleAvatar(),
+                    );
+                  }, loadSuccess: (e) {
+                    return BlocProvider(
+                      create: (context) => getIt<UserProfileFormBloc>()
+                        ..add(UserProfileFormEvent.started(e.user)),
+                      child: ProfileFormWidget(appUser: e.user),
+                    );
+                  }, loadFailure: (e) {
+                    return ListTile(
+                      tileColor: Colors.red,
+                      textColor: Colors.white,
+                      title: Text(
+                        e.appUserFailure.map(
+                          unexpected: (_) => 'Unexpected Error',
+                          insufficientPermissions: (_) => 'Permission Error',
+                        ),
+                      ),
+                    );
+                  });
+                },
+              ),
+            ],
           ),
         ),
       ),

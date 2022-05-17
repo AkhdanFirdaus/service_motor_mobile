@@ -74,12 +74,15 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 32),
-                  const Center(
-                    child: SizedBox(
-                      width: 200,
-                      height: 200,
-                      child: Placeholder(),
-                    ),
+                  // const Center(
+                  //   child: SizedBox(
+                  //     width: 200,
+                  //     height: 200,
+                  //     child: Placeholder(),
+                  //   ),
+                  // ),
+                  Center(
+                    child: Image.asset('assets/illustrations/login.png'),
                   ),
                   const SizedBox(height: 32),
                   const Text(

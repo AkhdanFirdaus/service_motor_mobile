@@ -25,12 +25,8 @@ class ForgotPage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 32),
-              const Center(
-                child: SizedBox(
-                  width: 200,
-                  height: 200,
-                  child: Placeholder(),
-                ),
+              Center(
+                child: Image.asset('assets/illustrations/forgot.png'),
               ),
               const SizedBox(height: 32),
               const Text('Email/Username'),

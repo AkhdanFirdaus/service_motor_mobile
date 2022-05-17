@@ -12,58 +12,86 @@ class SettingPage extends StatelessWidget {
     AutoRouter.of(context);
     return Scaffold(
       body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.all(30),
+        child: Stack(
           children: [
-            ListTile(
-              contentPadding: EdgeInsets.zero,
-              leading: BackButton(
-                onPressed: () {
-                  context.router.pop();
-                },
-              ),
-              title: const Text(
-                "Pengaturan",
-                style: AppFont.headline2,
-              ),
-              subtitle: Text(
-                "Ubah pengaturan aplikasimu",
-                style: AppFont.subhead3.copyWith(color: AppColor.greyOrange),
-              ),
-              trailing: CircleAvatar(
-                backgroundColor: AppColor.orange,
-                child: IconButton(
-                  color: AppColor.white,
-                  onPressed: () {
-                    context.router.push(const NotificationRoute());
-                  },
-                  icon: const Icon(Icons.notifications),
+            Positioned(
+              bottom: -100,
+              right: -60,
+              child: Image.asset('assets/other/gear.png'),
+            ),
+            ListView(
+              padding: const EdgeInsets.all(30),
+              children: [
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: const Text(
+                    "Pengaturan",
+                    style: AppFont.headline2,
+                  ),
+                  subtitle: Text(
+                    "Ubah pengaturan aplikasimu",
+                    style:
+                        AppFont.subhead3.copyWith(color: AppColor.greyOrange),
+                  ),
+                  trailing: CircleAvatar(
+                    backgroundColor: AppColor.orange,
+                    child: IconButton(
+                      color: AppColor.white,
+                      onPressed: () {
+                        context.router.push(const NotificationRoute());
+                      },
+                      icon: const Icon(Icons.notifications),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            const Divider(),
-            const SizedBox(height: 16),
-            ListTile(
-              onTap: () {
-                context.router.push(const ProfileRoute());
-              },
-              leading: const Icon(Icons.settings),
-              title: const Text("Pengaturan Akun"),
-            ),
-            ListTile(
-              onTap: () {},
-              leading: const Icon(Icons.account_circle),
-              title: const Text("Ketentuan Privasi Pengguna"),
-            ),
-            ListTile(
-              onTap: () {
-                context.read<AuthBloc>().add(const AuthEvent.signedOut());
-              },
-              leading: const Icon(Icons.exit_to_app, color: Colors.red),
-              title: const Text(
-                "Keluar",
-                style: TextStyle(color: Colors.red),
-              ),
+                const Divider(),
+                const SizedBox(height: 16),
+                ListTile(
+                  onTap: () {
+                    context.router.pop();
+                  },
+                  contentPadding: const EdgeInsets.symmetric(vertical: 8),
+                  leading: const Icon(
+                    Icons.arrow_back,
+                    color: AppColor.orange,
+                  ),
+                  title: const Text("Kembali ke Menu Utama"),
+                ),
+                ListTile(
+                  onTap: () {
+                    context.router.push(const ProfileRoute());
+                  },
+                  contentPadding: const EdgeInsets.symmetric(vertical: 8),
+                  leading: const Icon(
+                    Icons.settings,
+                    color: AppColor.orange,
+                  ),
+                  title: const Text("Pengaturan Akun"),
+                ),
+                ListTile(
+                  onTap: () {},
+                  contentPadding: const EdgeInsets.symmetric(vertical: 8),
+                  leading: const Icon(
+                    Icons.account_circle,
+                    color: AppColor.orange,
+                  ),
+                  title: const Text("Ketentuan Privasi Pengguna"),
+                ),
+                ListTile(
+                  onTap: () {
+                    context.read<AuthBloc>().add(const AuthEvent.signedOut());
+                  },
+                  contentPadding: const EdgeInsets.symmetric(vertical: 8),
+                  leading: const Icon(
+                    Icons.exit_to_app,
+                    color: Colors.red,
+                  ),
+                  title: const Text(
+                    "Keluar",
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
+              ],
             ),
           ],
         ),

@@ -10,73 +10,83 @@ class TicketActivePage extends StatelessWidget {
     AutoRouter.of(context);
     return Scaffold(
       body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.all(30),
+        child: Stack(
           children: [
-            ListTile(
-              contentPadding: EdgeInsets.zero,
-              title: const Text(
-                "Tiket Aktif",
-                style: AppFont.headline2,
-              ),
-              subtitle: Text(
-                "Menampilkan tiket servis yang aktif",
-                style: AppFont.subhead3.copyWith(color: AppColor.greyOrange),
-              ),
-              trailing: CircleAvatar(
-                backgroundColor: AppColor.orange,
-                child: IconButton(
-                  color: AppColor.white,
-                  onPressed: () {
-                    context.router.push(const NotificationRoute());
-                  },
-                  icon: const Icon(Icons.notifications),
-                ),
-              ),
+            Positioned(
+              bottom: -100,
+              right: -60,
+              child: Image.asset('assets/other/gear.png'),
             ),
-            const Divider(height: 16),
-            const SizedBox(height: 30),
-            const Text('Bulan April'),
-            for (int i = 0; i < 2; i++)
-              ListTile(
-                contentPadding: const EdgeInsets.symmetric(vertical: 16),
-                leading: const CircleAvatar(
-                  backgroundColor: AppColor.orange,
-                  child: Text(
-                    'A',
-                    style: TextStyle(color: AppColor.white),
+            ListView(
+              padding: const EdgeInsets.all(30),
+              children: [
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: const Text(
+                    "Tiket Aktif",
+                    style: AppFont.headline2,
+                  ),
+                  subtitle: Text(
+                    "Menampilkan tiket servis yang aktif",
+                    style:
+                        AppFont.subhead3.copyWith(color: AppColor.greyOrange),
+                  ),
+                  trailing: CircleAvatar(
+                    backgroundColor: AppColor.orange,
+                    child: IconButton(
+                      color: AppColor.white,
+                      onPressed: () {
+                        context.router.push(const NotificationRoute());
+                      },
+                      icon: const Icon(Icons.notifications),
+                    ),
                   ),
                 ),
-                title: Text('AHASS $i'),
-                subtitle: Text('27 Maret 202$i'),
-                trailing: ElevatedButton(
-                  onPressed: () {
-                    context.router.push(const TicketDetailRoute());
-                  },
-                  child: const Text('Lihat'),
-                ),
-              ),
-            const SizedBox(height: 16),
-            const Text('Bulan April'),
-            for (int i = 0; i < 2; i++)
-              ListTile(
-                contentPadding: const EdgeInsets.symmetric(vertical: 16),
-                leading: const CircleAvatar(
-                  backgroundColor: AppColor.orange,
-                  child: Text(
-                    'A',
-                    style: TextStyle(color: AppColor.white),
+                const Divider(height: 16),
+                const SizedBox(height: 30),
+                const Text('Bulan April'),
+                for (int i = 0; i < 2; i++)
+                  ListTile(
+                    contentPadding: const EdgeInsets.symmetric(vertical: 16),
+                    leading: const CircleAvatar(
+                      backgroundColor: AppColor.orange,
+                      child: Text(
+                        'A',
+                        style: TextStyle(color: AppColor.white),
+                      ),
+                    ),
+                    title: Text('AHASS $i'),
+                    subtitle: Text('27 Maret 202$i'),
+                    trailing: ElevatedButton(
+                      onPressed: () {
+                        context.router.push(const TicketDetailRoute());
+                      },
+                      child: const Text('Lihat'),
+                    ),
                   ),
-                ),
-                title: Text('AHASS $i'),
-                subtitle: Text('27 Maret 202$i'),
-                trailing: ElevatedButton(
-                  onPressed: () {
-                    context.router.push(const TicketDetailRoute());
-                  },
-                  child: const Text('Lihat'),
-                ),
-              ),
+                const SizedBox(height: 16),
+                const Text('Bulan April'),
+                for (int i = 0; i < 2; i++)
+                  ListTile(
+                    contentPadding: const EdgeInsets.symmetric(vertical: 16),
+                    leading: const CircleAvatar(
+                      backgroundColor: AppColor.orange,
+                      child: Text(
+                        'A',
+                        style: TextStyle(color: AppColor.white),
+                      ),
+                    ),
+                    title: Text('AHASS $i'),
+                    subtitle: Text('27 Maret 202$i'),
+                    trailing: ElevatedButton(
+                      onPressed: () {
+                        context.router.push(const TicketDetailRoute());
+                      },
+                      child: const Text('Lihat'),
+                    ),
+                  ),
+              ],
+            ),
           ],
         ),
       ),

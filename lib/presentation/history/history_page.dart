@@ -10,56 +10,66 @@ class HistoryPage extends StatelessWidget {
     AutoRouter.of(context);
     return Scaffold(
       body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.all(30),
+        child: Stack(
           children: [
-            ListTile(
-              contentPadding: EdgeInsets.zero,
-              title: const Text(
-                "History Page",
-                style: AppFont.headline3,
-              ),
-              subtitle: Text(
-                "Menampilkan histori setiap kali service",
-                style: AppFont.subhead3.copyWith(color: AppColor.greyOrange),
-              ),
-              trailing: CircleAvatar(
-                backgroundColor: AppColor.orange,
-                child: IconButton(
-                  color: AppColor.white,
-                  onPressed: () {
-                    context.router.push(const NotificationRoute());
-                  },
-                  icon: const Icon(Icons.notifications),
-                ),
-              ),
+            Positioned(
+              bottom: -100,
+              right: -60,
+              child: Image.asset('assets/other/gear.png'),
             ),
-            const Divider(),
-            const SizedBox(height: 16),
-            for (int i = 0; i < 3; i++) ...[
-              const SizedBox(height: 16),
-              Text('Bulan ke $i'),
-              for (int i = 0; i < 3; i++)
+            ListView(
+              padding: const EdgeInsets.all(30),
+              children: [
                 ListTile(
-                  contentPadding: const EdgeInsets.symmetric(vertical: 16),
-                  onTap: () {
-                    context.router.push(const HistoryDetailRoute());
-                  },
-                  leading: const CircleAvatar(
+                  contentPadding: EdgeInsets.zero,
+                  title: const Text(
+                    "History Page",
+                    style: AppFont.headline3,
+                  ),
+                  subtitle: Text(
+                    "Menampilkan histori setiap kali service",
+                    style:
+                        AppFont.subhead3.copyWith(color: AppColor.greyOrange),
+                  ),
+                  trailing: CircleAvatar(
                     backgroundColor: AppColor.orange,
-                    child: Text(
-                      'A',
-                      style: TextStyle(color: AppColor.white),
+                    child: IconButton(
+                      color: AppColor.white,
+                      onPressed: () {
+                        context.router.push(const NotificationRoute());
+                      },
+                      icon: const Icon(Icons.notifications),
                     ),
                   ),
-                  title: Text('AHASS $i'),
-                  subtitle: Text('27 Maret 202$i'),
-                  trailing: Text(
-                    'Rp. ${i}45.000',
-                    style: const TextStyle(color: Colors.red),
-                  ),
                 ),
-            ],
+                const Divider(),
+                const SizedBox(height: 16),
+                for (int i = 0; i < 3; i++) ...[
+                  const SizedBox(height: 16),
+                  Text('Bulan ke $i'),
+                  for (int i = 0; i < 3; i++)
+                    ListTile(
+                      contentPadding: const EdgeInsets.symmetric(vertical: 16),
+                      onTap: () {
+                        context.router.push(const HistoryDetailRoute());
+                      },
+                      leading: const CircleAvatar(
+                        backgroundColor: AppColor.orange,
+                        child: Text(
+                          'A',
+                          style: TextStyle(color: AppColor.white),
+                        ),
+                      ),
+                      title: Text('AHASS $i'),
+                      subtitle: Text('27 Maret 202$i'),
+                      trailing: Text(
+                        'Rp. ${i}45.000',
+                        style: const TextStyle(color: Colors.red),
+                      ),
+                    ),
+                ],
+              ],
+            ),
           ],
         ),
       ),

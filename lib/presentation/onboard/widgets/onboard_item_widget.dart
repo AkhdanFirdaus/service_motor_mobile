@@ -6,23 +6,24 @@ class OnboardItemWidget extends StatelessWidget {
     Key? key,
     required this.title,
     required this.description,
+    required this.image,
   }) : super(key: key);
 
   final String title;
   final String description;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          height: MediaQuery.of(context).size.height * 0.6,
-          padding: const EdgeInsets.all(30),
-          child: const Center(
-            child: SizedBox(
-              height: 200,
-              width: 200,
-              child: Placeholder(),
+        Expanded(
+          flex: 2,
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.all(30),
+            child: Center(
+              child: Image.asset(image),
             ),
           ),
         ),

@@ -14,15 +14,16 @@ class SplashPage extends StatelessWidget {
           state.map(
             initial: (_) {},
             authenticated: (_) {
-              context.router.push(const AppMainLayoutRoute());
+              context.router.replace(const AppMainLayoutRoute());
             },
             unauthenticated: (_) {
-              context.router.push(const OnboardRoute());
+              context.router.replace(const OnboardRoute());
             },
           );
         });
       },
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
@@ -30,12 +31,7 @@ class SplashPage extends StatelessWidget {
               children: [
                 Align(
                   alignment: Alignment.center,
-                  child: Container(
-                    width: 300,
-                    height: 300,
-                    color: Colors.grey.shade400,
-                    child: const Placeholder(),
-                  ),
+                  child: Image.asset('assets/logo/logo.png'),
                 ),
                 const Align(
                   alignment: Alignment.bottomCenter,
