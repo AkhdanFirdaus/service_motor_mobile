@@ -32,7 +32,9 @@ class SettingPage extends StatelessWidget {
             const Divider(height: 16),
             const SizedBox(height: 16),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                context.router.push(const ProfileRoute());
+              },
               leading: const Icon(Icons.settings),
               title: const Text("Pengaturan Akun"),
             ),

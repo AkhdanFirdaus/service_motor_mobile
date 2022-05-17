@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:service_motor_mobile/application/auth/user_profile_form/user_profile_form_bloc.dart';
+import 'package:service_motor_mobile/application/main_layout_menu/main_layout_menu_cubit.dart';
 import 'package:service_motor_mobile/domain/auth/app_user.dart';
 import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
@@ -320,6 +321,16 @@ class _ProfileFormWidgetState extends State<ProfileFormWidget> {
                 const SizedBox(height: 8),
                 const LinearProgressIndicator(),
               ],
+              const SizedBox(height: 16),
+              FractionallySizedBox(
+                widthFactor: 1,
+                child: OutlinedButton(
+                  onPressed: () {
+                    context.router.pop();
+                  },
+                  child: const Text('Kembali ke Menu Utama'),
+                ),
+              ),
             ],
           ),
         );

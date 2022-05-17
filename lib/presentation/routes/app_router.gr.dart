@@ -45,6 +45,10 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const ForgotPage());
     },
+    ProfileRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const ProfilePage());
+    },
     ReparationRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const ReparationPage());
@@ -92,6 +96,7 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(RegisterRoute.name, path: '/register-page'),
         RouteConfig(RegisterSuccesRoute.name, path: '/register-succes-page'),
         RouteConfig(ForgotRoute.name, path: '/forgot-page'),
+        RouteConfig(ProfileRoute.name, path: '/profile-page'),
         RouteConfig(ReparationRoute.name, path: '/reparation-page'),
         RouteConfig(LocationRoute.name, path: '/location-page'),
         RouteConfig(SettingRoute.name, path: '/setting-page'),
@@ -160,6 +165,14 @@ class ForgotRoute extends PageRouteInfo<void> {
   const ForgotRoute() : super(ForgotRoute.name, path: '/forgot-page');
 
   static const String name = 'ForgotRoute';
+}
+
+/// generated route for
+/// [ProfilePage]
+class ProfileRoute extends PageRouteInfo<void> {
+  const ProfileRoute() : super(ProfileRoute.name, path: '/profile-page');
+
+  static const String name = 'ProfileRoute';
 }
 
 /// generated route for

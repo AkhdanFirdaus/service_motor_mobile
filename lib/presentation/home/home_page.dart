@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
                   const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: () {
-                      context.read<MainLayoutMenuCubit>().changePage(2);
+                      context.read<MainLayoutMenuCubit>().changePage(3);
                     },
                     child: const Text('Lihat Histori'),
                   ),
@@ -60,7 +60,7 @@ class HomePage extends StatelessWidget {
                   const Text('Histori Terbaru'),
                   TextButton(
                     onPressed: () {
-                      context.read<MainLayoutMenuCubit>().changePage(2);
+                      context.read<MainLayoutMenuCubit>().changePage(3);
                     },
                     child: const Text('Lihat Semua'),
                   ),

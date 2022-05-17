@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:service_motor_mobile/presentation/auth/forgot/forgot_page.dart';
 import 'package:service_motor_mobile/presentation/auth/login/login_page.dart';
+import 'package:service_motor_mobile/presentation/auth/profile/profile_page.dart';
 import 'package:service_motor_mobile/presentation/auth/register/register_page.dart';
 import 'package:service_motor_mobile/presentation/auth/register/register_success_page.dart';
 import 'package:service_motor_mobile/presentation/core/app_main_layout.dart';
@@ -31,6 +32,7 @@ part 'app_router.gr.dart';
     AutoRoute(page: RegisterPage),
     AutoRoute(page: RegisterSuccesPage),
     AutoRoute(page: ForgotPage),
+    AutoRoute(page: ProfilePage),
     AutoRoute(page: ReparationPage),
     AutoRoute(page: LocationPage),
     AutoRoute(page: SettingPage),

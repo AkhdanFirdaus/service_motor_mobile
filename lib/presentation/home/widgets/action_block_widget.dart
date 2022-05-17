@@ -18,7 +18,7 @@ class ActionBlocWidget extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
-                  context.router.push(const ReparationRoute());
+                  context.read<MainLayoutMenuCubit>().changePage(1);
                 },
                 child: Container(
                   padding: const EdgeInsets.all(16),
@@ -43,7 +43,7 @@ class ActionBlocWidget extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
-                  context.read<MainLayoutMenuCubit>().changePage(1);
+                  context.read<MainLayoutMenuCubit>().changePage(2);
                 },
                 child: Container(
                   padding: const EdgeInsets.all(16),
