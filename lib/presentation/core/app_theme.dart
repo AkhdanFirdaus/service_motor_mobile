@@ -41,6 +41,7 @@ class AppTheme {
               horizontal: 18,
               vertical: 14,
             ),
+            side: const BorderSide(color: AppColor.orange),
           ),
         ),
         textButtonTheme: TextButtonThemeData(
@@ -67,8 +68,14 @@ class AppColor {
 }
 
 class AppFont {
-  static const headline2 = TextStyle(
+  static const headline1 = TextStyle(
     fontSize: 24,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.01,
+  );
+
+  static const headline2 = TextStyle(
+    fontSize: 20,
     fontWeight: FontWeight.w600,
     letterSpacing: 0.01,
   );

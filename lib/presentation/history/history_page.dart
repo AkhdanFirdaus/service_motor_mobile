@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:service_motor_mobile/presentation/core/app_theme.dart';
 import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
 class HistoryPage extends StatelessWidget {
@@ -13,14 +14,17 @@ class HistoryPage extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           children: [
             ListTile(
-              leading: const CircleAvatar(),
               title: const Text("History Page"),
               subtitle: const Text("Menampilkan histori setiap kali service"),
-              trailing: IconButton(
-                onPressed: () {
-                  context.router.push(const NotificationRoute());
-                },
-                icon: const Icon(Icons.notifications),
+              trailing: CircleAvatar(
+                backgroundColor: AppColor.orange,
+                child: IconButton(
+                  color: AppColor.white,
+                  onPressed: () {
+                    context.router.push(const NotificationRoute());
+                  },
+                  icon: const Icon(Icons.notifications),
+                ),
               ),
             ),
             const Divider(height: 16),

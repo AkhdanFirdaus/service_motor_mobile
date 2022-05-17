@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
                   const SizedBox(height: 8),
                   Text(
                     "20 Maret 2022",
-                    style: AppFont.headline2.copyWith(
+                    style: AppFont.headline1.copyWith(
                       color: AppColor.white,
                     ),
                   ),

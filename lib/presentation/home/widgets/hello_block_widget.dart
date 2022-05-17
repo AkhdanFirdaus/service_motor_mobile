@@ -33,8 +33,14 @@ class HelloBlockWidget extends StatelessWidget {
           loadSuccess: (e) {
             return ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 30),
-              title: Text(e.user.name ?? e.user.email),
-              subtitle: const Text("Selamat Pagi!"),
+              title: Text(
+                'Halo, ${(e.user.name ?? e.user.email).split(" ")[0]}',
+                style: AppFont.headline2,
+              ),
+              subtitle: Text(
+                "Selamat Pagi!",
+                style: AppFont.subhead3.copyWith(color: AppColor.greyOrange),
+              ),
               trailing: CircleAvatar(
                 backgroundColor: AppColor.orange,
                 child: IconButton(
