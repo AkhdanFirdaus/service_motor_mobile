@@ -64,6 +64,7 @@ class DefaultFirebaseOptions {
     projectId: 'service-motor-ppl',
     databaseURL: 'https://service-motor-ppl-default-rtdb.firebaseio.com',
     storageBucket: 'service-motor-ppl.appspot.com',
+    androidClientId: '910882897101-jju5jko2hv95togfebbcrnr97afose85.apps.googleusercontent.com',
     iosClientId: '910882897101-os835oh9i36jcmlg2l8voo6uaki346co.apps.googleusercontent.com',
     iosBundleId: 'com.ppl4b.servicemotormobile.serviceMotorMobile',
   );
@@ -75,6 +76,7 @@ class DefaultFirebaseOptions {
     projectId: 'service-motor-ppl',
     databaseURL: 'https://service-motor-ppl-default-rtdb.firebaseio.com',
     storageBucket: 'service-motor-ppl.appspot.com',
+    androidClientId: '910882897101-jju5jko2hv95togfebbcrnr97afose85.apps.googleusercontent.com',
     iosClientId: '910882897101-os835oh9i36jcmlg2l8voo6uaki346co.apps.googleusercontent.com',
     iosBundleId: 'com.ppl4b.servicemotormobile.serviceMotorMobile',
   );
