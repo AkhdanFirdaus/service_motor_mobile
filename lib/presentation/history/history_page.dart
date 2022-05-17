@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:service_motor_mobile/presentation/core/app_theme.dart';
 import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
 class HistoryPage extends StatelessWidget {
@@ -9,34 +10,56 @@ class HistoryPage extends StatelessWidget {
     AutoRouter.of(context);
     return Scaffold(
       body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.all(16),
+        child: Stack(
           children: [
-            ListTile(
-              leading: const CircleAvatar(),
-              title: const Text("History Page"),
-              subtitle: const Text("Menampilkan histori setiap kali service"),
-              trailing: IconButton(
-                onPressed: () {
-                  context.router.push(const NotificationRoute());
-                },
-                icon: const Icon(Icons.notifications),
-              ),
+            Positioned(
+              bottom: -100,
+              right: -60,
+              child: Image.asset('assets/other/gear.png'),
             ),
-            const Divider(height: 16),
-            const SizedBox(height: 16),
-            for (int i = 0; i < 3; i++) ...[
-              Text('Bulan ke $i'),
-              for (int i = 0; i < 3; i++)
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 16),
-                  child: Material(
-                    elevation: 4,
-                    borderRadius: BorderRadius.circular(8),
-                    child: ListTile(
+            ListView(
+              padding: const EdgeInsets.all(30),
+              children: [
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: const Text(
+                    "History Page",
+                    style: AppFont.headline3,
+                  ),
+                  subtitle: Text(
+                    "Menampilkan histori setiap kali service",
+                    style:
+                        AppFont.subhead3.copyWith(color: AppColor.greyOrange),
+                  ),
+                  trailing: CircleAvatar(
+                    backgroundColor: AppColor.orange,
+                    child: IconButton(
+                      color: AppColor.white,
+                      onPressed: () {
+                        context.router.push(const NotificationRoute());
+                      },
+                      icon: const Icon(Icons.notifications),
+                    ),
+                  ),
+                ),
+                const Divider(),
+                const SizedBox(height: 16),
+                for (int i = 0; i < 3; i++) ...[
+                  const SizedBox(height: 16),
+                  Text('Bulan ke $i'),
+                  for (int i = 0; i < 3; i++)
+                    ListTile(
+                      contentPadding: const EdgeInsets.symmetric(vertical: 16),
                       onTap: () {
                         context.router.push(const HistoryDetailRoute());
                       },
+                      leading: const CircleAvatar(
+                        backgroundColor: AppColor.orange,
+                        child: Text(
+                          'A',
+                          style: TextStyle(color: AppColor.white),
+                        ),
+                      ),
                       title: Text('AHASS $i'),
                       subtitle: Text('27 Maret 202$i'),
                       trailing: Text(
@@ -44,9 +67,9 @@ class HistoryPage extends StatelessWidget {
                         style: const TextStyle(color: Colors.red),
                       ),
                     ),
-                  ),
-                ),
-            ],
+                ],
+              ],
+            ),
           ],
         ),
       ),

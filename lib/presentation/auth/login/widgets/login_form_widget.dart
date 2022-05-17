@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:service_motor_mobile/application/auth/auth_bloc.dart';
 import 'package:service_motor_mobile/application/auth/login_form/login_form_bloc.dart';
+import 'package:service_motor_mobile/presentation/core/app_theme.dart';
 import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
 class LoginFormWidget extends StatefulWidget {
@@ -59,26 +60,36 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
             child: Form(
               autovalidateMode: AutovalidateMode.onUserInteraction,
               child: ListView(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(30),
                 children: [
                   const Text(
                     'Masuk',
+                    style: AppFont.headline3,
                     textAlign: TextAlign.center,
                   ),
+                  const SizedBox(height: 8),
                   const Text(
                     'Mulai Pengalaman Reparasi Motor yang cepat dan efektif',
+                    style: AppFont.subhead3,
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 16),
-                  const Center(
-                    child: SizedBox(
-                      width: 200,
-                      height: 200,
-                      child: Placeholder(),
-                    ),
+                  const SizedBox(height: 32),
+                  // const Center(
+                  //   child: SizedBox(
+                  //     width: 200,
+                  //     height: 200,
+                  //     child: Placeholder(),
+                  //   ),
+                  // ),
+                  Center(
+                    child: Image.asset('assets/illustrations/login.png'),
                   ),
-                  const SizedBox(height: 16),
-                  const Text('Email/Username'),
+                  const SizedBox(height: 32),
+                  const Text(
+                    'Email',
+                    style: AppFont.formLabel,
+                  ),
+                  const SizedBox(height: 8),
                   TextFormField(
                     decoration: const InputDecoration(
                       hintText: 'Masukkan Email atau Username',
@@ -107,7 +118,11 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                     },
                   ),
                   const SizedBox(height: 16),
-                  const Text('Kata Sandi'),
+                  const Text(
+                    'Kata Sandi',
+                    style: AppFont.formLabel,
+                  ),
+                  const SizedBox(height: 8),
                   TextFormField(
                     obscureText: isObsecure,
                     decoration: InputDecoration(
@@ -144,18 +159,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                           );
                     },
                   ),
-                  const SizedBox(height: 16),
-                  CheckboxListTile(
-                    value: isTechnician,
-                    onChanged: (value) {
-                      setState(() {
-                        isTechnician = !isTechnician;
-                      });
-                    },
-                    controlAffinity: ListTileControlAffinity.leading,
-                    title: const Text('Masuk Sebagai Teknisi'),
-                  ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 32),
                   FractionallySizedBox(
                     widthFactor: 1,
                     child: ElevatedButton(
@@ -203,11 +207,15 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                       child: RichText(
                         text: const TextSpan(
                           text: 'Belum memiliki akun?',
-                          style: TextStyle(color: Colors.blue),
+                          style: TextStyle(color: AppColor.greyOrange),
                           children: [
                             TextSpan(
                               text: ' Daftar',
-                              style: TextStyle(color: Colors.black),
+                              style: TextStyle(
+                                color: AppColor.orange,
+                                decoration: TextDecoration.underline,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
                           ],
                         ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:service_motor_mobile/application/auth/user_profile_form/user_profile_form_bloc.dart';
 import 'package:service_motor_mobile/domain/auth/app_user.dart';
+import 'package:service_motor_mobile/presentation/core/app_theme.dart';
 import 'package:service_motor_mobile/presentation/routes/app_router.dart';
 
 class ProfileFormWidget extends StatefulWidget {
@@ -96,25 +97,38 @@ class _ProfileFormWidgetState extends State<ProfileFormWidget> {
         return Form(
           autovalidateMode: AutovalidateMode.onUserInteraction,
           child: ListView(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(30),
             children: [
               ListTile(
-                title: const Text("Cek Lokasi"),
-                subtitle:
-                    const Text("Cari tempat service terdekat dari posisimu"),
-                trailing: IconButton(
-                  onPressed: () {
-                    context.router.push(const NotificationRoute());
-                  },
-                  icon: const Icon(Icons.notifications),
+                contentPadding: EdgeInsets.zero,
+                title: const Text(
+                  "Profil",
+                  style: AppFont.headline2,
+                ),
+                subtitle: Text(
+                  "Ubah pengaturan dari profilmu",
+                  style: AppFont.subhead3.copyWith(color: AppColor.greyOrange),
+                ),
+                trailing: CircleAvatar(
+                  backgroundColor: AppColor.orange,
+                  child: IconButton(
+                    color: AppColor.white,
+                    onPressed: () {
+                      context.router.push(const NotificationRoute());
+                    },
+                    icon: const Icon(Icons.notifications),
+                  ),
                 ),
               ),
-              const SizedBox(height: 16),
               const Divider(),
-              const SizedBox(height: 16),
+              const SizedBox(height: 30),
               const CircleAvatar(radius: 50),
-              const SizedBox(height: 16),
-              const Text('Nama Lengkap'),
+              const SizedBox(height: 30),
+              const Text(
+                'Nama Lengkap',
+                style: AppFont.formLabel,
+              ),
+              const SizedBox(height: 8),
               TextFormField(
                 controller: fullnameController,
                 decoration: const InputDecoration(
@@ -142,7 +156,11 @@ class _ProfileFormWidgetState extends State<ProfileFormWidget> {
                 },
               ),
               const SizedBox(height: 16),
-              const Text('No. HP'),
+              const Text(
+                'No. HP',
+                style: AppFont.formLabel,
+              ),
+              const SizedBox(height: 8),
               TextFormField(
                 controller: phoneController,
                 decoration: const InputDecoration(
@@ -170,7 +188,11 @@ class _ProfileFormWidgetState extends State<ProfileFormWidget> {
                 },
               ),
               const SizedBox(height: 16),
-              const Text('Email/Username'),
+              const Text(
+                'Email',
+                style: AppFont.formLabel,
+              ),
+              const SizedBox(height: 8),
               TextFormField(
                 controller: emailController,
                 decoration: const InputDecoration(
@@ -198,7 +220,11 @@ class _ProfileFormWidgetState extends State<ProfileFormWidget> {
                 },
               ),
               const SizedBox(height: 16),
-              const Text('Kata Sandi Baru'),
+              const Text(
+                'Kata Sandi Baru',
+                style: AppFont.formLabel,
+              ),
+              const SizedBox(height: 8),
               TextFormField(
                 controller: passwordController,
                 obscureText: isObsecure,
@@ -238,7 +264,11 @@ class _ProfileFormWidgetState extends State<ProfileFormWidget> {
                 },
               ),
               const SizedBox(height: 16),
-              const Text('Konfirmasi Kata Sandi'),
+              const Text(
+                'Konfirmasi Kata Sandi',
+                style: AppFont.formLabel,
+              ),
+              const SizedBox(height: 8),
               TextFormField(
                 controller: passwordConfirmController,
                 obscureText: isObsecure2,
@@ -277,7 +307,11 @@ class _ProfileFormWidgetState extends State<ProfileFormWidget> {
                 },
               ),
               const SizedBox(height: 16),
-              const Text('Alamat'),
+              const Text(
+                'Alamat',
+                style: AppFont.formLabel,
+              ),
+              const SizedBox(height: 8),
               TextFormField(
                 controller: addressController,
                 decoration: const InputDecoration(
@@ -304,7 +338,7 @@ class _ProfileFormWidgetState extends State<ProfileFormWidget> {
                       );
                 },
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 30),
               FractionallySizedBox(
                 widthFactor: 1,
                 child: ElevatedButton(
@@ -320,6 +354,16 @@ class _ProfileFormWidgetState extends State<ProfileFormWidget> {
                 const SizedBox(height: 8),
                 const LinearProgressIndicator(),
               ],
+              const SizedBox(height: 16),
+              FractionallySizedBox(
+                widthFactor: 1,
+                child: OutlinedButton(
+                  onPressed: () {
+                    context.router.pop();
+                  },
+                  child: const Text('Kembali ke Menu Utama'),
+                ),
+              ),
             ],
           ),
         );
