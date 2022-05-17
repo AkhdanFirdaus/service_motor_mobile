@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:service_motor_mobile/application/auth/auth_bloc.dart';
 import 'package:service_motor_mobile/application/auth/user_profile/user_profile_bloc.dart';
+import 'package:service_motor_mobile/application/notification/notification_bloc.dart';
 import 'package:service_motor_mobile/injection.dart';
 
 import 'package:service_motor_mobile/presentation/auth/profile/profile_page.dart';
@@ -53,6 +54,27 @@ class _AppMainLayoutPageState extends State<AppMainLayoutPage> {
       ],
       child: MultiBlocListener(
         listeners: [
+          BlocListener<NotificationBloc, NotificationState>(
+            listener: (context, state) {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: Text(state.notifications.last.title),
+                    content: Text(state.notifications.last.body),
+                    actions: [
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text('Close'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+          ),
           BlocListener<AuthBloc, AuthState>(
             listener: (context, state) {
               state.maybeMap(
