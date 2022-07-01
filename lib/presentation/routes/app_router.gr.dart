@@ -74,8 +74,11 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData, child: const TicketActivePage());
     },
     TicketChatRoute.name: (routeData) {
+      final args = routeData.argsAs<TicketChatRouteArgs>();
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const TicketChatPage());
+          routeData: routeData,
+          child:
+              TicketChatPage(key: args.key, transactionId: args.transactionId));
     },
     TicketDetailRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
@@ -229,11 +232,26 @@ class TicketActiveRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [TicketChatPage]
-class TicketChatRoute extends PageRouteInfo<void> {
-  const TicketChatRoute()
-      : super(TicketChatRoute.name, path: '/ticket-chat-page');
+class TicketChatRoute extends PageRouteInfo<TicketChatRouteArgs> {
+  TicketChatRoute({Key? key, required String transactionId})
+      : super(TicketChatRoute.name,
+            path: '/ticket-chat-page',
+            args: TicketChatRouteArgs(key: key, transactionId: transactionId));
 
   static const String name = 'TicketChatRoute';
+}
+
+class TicketChatRouteArgs {
+  const TicketChatRouteArgs({this.key, required this.transactionId});
+
+  final Key? key;
+
+  final String transactionId;
+
+  @override
+  String toString() {
+    return 'TicketChatRouteArgs{key: $key, transactionId: $transactionId}';
+  }
 }
 
 /// generated route for

@@ -10,3 +10,8 @@ extension FirestoreX on FirebaseFirestore {
     return FirebaseFirestore.instance.collection('users').doc(user.email);
   }
 }
+
+extension DocumentReferenceX on DocumentReference {
+  CollectionReference get transactionsCollection => collection('transactions');
+  CollectionReference get chatCollection => collection('chat');
+}

@@ -71,7 +71,8 @@ class TicketDetailPage extends StatelessWidget {
                   widthFactor: 1,
                   child: ElevatedButton(
                     onPressed: () {
-                      context.router.push(const TicketChatRoute());
+                      context.router.push(TicketChatRoute(
+                          transactionId: 'CdRGSOchDLg1Ftob17kN'));
                     },
                     child: const Text('Hubungi Admin'),
                   ),
